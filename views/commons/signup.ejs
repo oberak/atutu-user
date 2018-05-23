@@ -7,29 +7,31 @@
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
       <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-
 <body>
-  <p class="tip">Click on button in image container</p>
+  <p class="tip">Registration to <b>ATUTU</b></p>
 <div class="cont">
+  <!-- sign in start -->
+  <form name="frm" action="/signin" method="post">
   <div class="form sign-in">
     <h2>Welcome back,</h2>
     <label>
-      <span>Email</span>
-      <input type="email" />
+      <span>Email or ID</span>
+      <input type="type" name="email" id="email" />
     </label>
     <label>
       <span>Password</span>
-      <input type="password" />
+      <input type="password" name="password" id="password" />
     </label>
     <p class="forgot-pass">Forgot password?</p>
-    <button type="button" class="submit">Sign In</button>
+    <button type="submit" class="submit">Sign In</button>
     <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
   </div>
+</form>
   <div class="sub-cont">
     <div class="img">
       <div class="img__text m--up">
         <h2>New here?</h2>
-        <p>Sign up and discover great amount of new opportunities!</p>
+        <p>Sign up and donation for another people who really need for help</p>
       </div>
       <div class="img__text m--in">
         <h2>One of us?</h2>
@@ -40,32 +42,39 @@
         <span class="m--in">Sign In</span>
       </div>
     </div>
+    <form name="frm" action="/signup" method="post">
     <div class="form sign-up">
-      <h2>Time to feel like home,</h2>
+      <h2>Sign in for Help</h2>
       <label>
         <span>Name</span>
-        <input type="text" />
+        <input type="text" name="name" id="name" required />
+      </label>
+      <label>
+        <span>Id</span>
+        <input type="text" name="id" id="id" required />
       </label>
       <label>
         <span>Email</span>
-        <input type="email" />
+        <input type="email" name="email" id="email" />
+      </label>
+      <label>
+        <span>Phone</span>
+        <input type="phone" name="phone" id="phone" />
       </label>
       <label>
         <span>Password</span>
-        <input type="password" />
+        <input type="password" name="password" id="password" required/>
       </label>
-      <button type="button" class="submit">Sign Up</button>
+      <label>
+        <span>Confirm Password</span>
+        <input type="password" name="confpassword" id="confpassword" required/>
+      </label>
+      <button type="submit" class="submit">Sign Up</button>
       <button type="button" class="fb-btn">Join with <span>facebook</span></button>
     </div>
+    </form>
   </div>
 </div>
-
-<a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
-  <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
-</a>
-<a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
-  <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
-</a>
   <script type="text/javascript">
       document.querySelector('.img__btn').addEventListener('click', function() {
         document.querySelector('.cont').classList.toggle('s--signup');
@@ -73,5 +82,5 @@
   </script>
 
 </body>
-
+</div>
 </html>

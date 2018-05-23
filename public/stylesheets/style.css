@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  background: #ededed;
+  background: #7878ff;
 }
 
 input, button {
@@ -26,7 +26,7 @@ input, button {
   overflow: hidden;
   position: relative;
   width: 900px;
-  height: 550px;
+  height: 600px;
   margin: 0 auto 100px;
   background: #fff;
 }
@@ -87,7 +87,7 @@ button {
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/sections-3.jpg");
+  background-image: url("/images/aa.jpg");
   background-size: cover;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out;
@@ -120,7 +120,7 @@ button {
   transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
 }
 .img__text h2 {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   font-weight: normal;
 }
 .img__text p {
@@ -191,27 +191,29 @@ button {
 
 h2 {
   width: 100%;
-  font-size: 26px;
+  font-size: 20px;
   text-align: center;
 }
 
 label {
   display: block;
   width: 260px;
-  margin: 25px auto 0;
+  margin: 15px auto 0;
   text-align: center;
 }
 label span {
   font-size: 12px;
-  color: #cfcfcf;
+  color: #8888ff;
+  font-weight: bold;
+  font-family: Comic Sans MS;
   text-transform: uppercase;
 }
 
 input {
   display: block;
   width: 100%;
-  margin-top: 5px;
-  padding-bottom: 5px;
+  margin-top: 1px;
+  padding-bottom: 2px;
   font-size: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   text-align: center;
@@ -221,7 +223,7 @@ input {
   margin-top: 15px;
   text-align: center;
   font-size: 12px;
-  color: #cfcfcf;
+  color: #8888ff;
 }
 
 .submit {

@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,6 +20,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+mongoose.connect('mongodb://127.0.0.1/atutudb'); // studydb is anyname can insert
+var db = mongoose.connection;
+db.on('error',console.error.bind(console,'MongoDB connection error:'));
+
+//session : before routing
+    app.use(session({
+          secret: 'XailEJS#@S12S',// any string for security
+          resave: false,
+          saveUninitialized : true
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
