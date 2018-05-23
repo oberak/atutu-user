@@ -1,11 +1,669 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<!doctype html>
+<html lang="zxx">
+<head>
+  <% include partial/head.ejs %>
+</head>
+<body >
+
+    <div id="wrapper" class="wrapper">
+
+        <!-- BEGIN HEADER -->
+            <% include partial/header.ejs %>
+        <!-- END HEADER -->
+
+
+
+        <!-- BEGIN MAIN CONTENT -->
+        <main class="site-content">
+
+<div class="slideshow owl-carousel" data-slideshow-settings='{"animateOut":"fadeOut","animateIn":"fadeIn"}'>
+	<div class="slideshow-item slideshow-item-1">
+		<div class="slideshow-item-bg"></div>
+		<div class="slideshow-item-inner">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col col-lg-8 col-lg-offset-2">
+						<h2 class="title animated fadeInUpSmall" data-animation=""><i>Education</i><br> for all</h2>
+						<p class="lead animated fadeInUpSmall">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed eligendi recusandae, perferendis, tempora tenetur facilis animi. Ex, esse sunt natus!</p>
+						<a href="cause.html" class="btn btn-lg btn-primary animated fadeInUpSmall">Read more</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="slideshow-item slideshow-item-2">
+		<div class="slideshow-item-bg"></div>
+		<div class="slideshow-item-inner">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col col-lg-8 col-lg-offset-2">
+						<h2 class="title animated fadeInLeftSmall">Save <i>water</i> initiative</h2>
+						<p class="lead animated fadeInLeftSmall">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus impedit consectetur pariatur aliquid blanditiis nam hic, qui quos. Saepe, quis?</p>
+						<a href="cause.html" class="btn btn-lg btn-primary animated fadeInLeftSmall">Read more</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="slideshow-item slideshow-item-3">
+		<div class="slideshow-item-bg"></div>
+		<div class="slideshow-item-inner">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col col-lg-8 col-lg-offset-2">
+						<h2 class="title animated fadeInRightSmall"><i>Home</i> for everyone</h2>
+						<p class="lead animated fadeInRightSmall">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates fuga optio mollitia aut architecto eaque, eveniet accusantium non cupiditate animi.</p>
+						<a href="cause.html" class="btn btn-lg btn-primary animated fadeInRightSmall">Read more</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-light">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<p><img src="images/icon-donate.png" width="128" height="128" alt=""></p>
+				<h2>Become a sponsor</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit provident est vero vel dolorem facere eos aut odio, sapiente inventore.</p>
+				<a href="donate.html" class="btn btn-lg btn-default">Make a donation</a>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<p><img src="images/icon-volunteer.png" width="128" height="128" alt=""></p>
+				<h2>Get involved</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ea porro doloribus molestias recusandae in architecto tempora quis aliquam earum!</p>
+				<a href="volunteering.html" class="btn btn-lg btn-default">Become a volunteer</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<header class="heading text-center">
+		<p>We are helping</p>
+		<h2>Featured causes</h2>
+	</header>
+<div class="owl-carousel posts" data-slideshow-settings='{"responsive":{"0":{"items":1}, "767":{"items":2}, "992":{"items":2}, "1200":{"items":3}}, "margin":15, "dots":false}'>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Health</a></div>
+			<div class="post-thumb">
+				<img src="images/cause-photo-1.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Children’s health fund</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$11,300</span></div>
+						<div class="cause-progress-goal">Goal <span>$15,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Quibusdam quae ipsam at mollitia dolorem quam ipsa vero. Similique, illum. Veritatis cumque et est nam alias quisquam officiis.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Animals</a></div>
+			<div class="post-thumb">
+				<img src="images/cause-photo-2.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Establishment of educational infrastructure</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$9,800</span></div>
+						<div class="cause-progress-goal">Goal <span>$20,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Sed provident, asperiores, adipisci minus officia mollitia itaque. Voluptate temporibus, quidem praesentium, unde magni itaque error suscipit.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Health</a></div>
+			<div class="post-thumb">
+				<img src="images/cause-photo-3.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Help Tommy to start a new life</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$4,700</span></div>
+						<div class="cause-progress-goal">Goal <span>$8,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Minus cum adipisci assumenda cupiditate voluptatem vel nihil sed perferendis, natus rem! Ea neque cumque cupiditate libero doloremque!</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Education</a></div>
+			<div class="post-thumb">
+				<img src="images/cause-photo-4.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Preventing the extinction of rare species of animals</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$11,300</span></div>
+						<div class="cause-progress-goal">Goal <span>$42,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Pariatur nulla quo repudiandae eum porro minus iusto, non? Officiis nihil, quae temporibus dolorum veniam cupiditate laudantium.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Health</a></div>
+			<div class="post-thumb">
+				<img src="images/cause-photo-5.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Lily needs your help</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$3,900</span></div>
+						<div class="cause-progress-goal">Goal <span>$5,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Sed provident, asperiores, adipisci minus officia mollitia itaque. Voluptate temporibus, quidem praesentium, unde magni itaque error suscipit.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Food</a></div>
+			<div class="post-thumb">
+				<img src="images/cause-photo-6.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Provide humanitarian assistance to people</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$28,100</span></div>
+						<div class="cause-progress-goal">Goal <span>$32,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Minus cum adipisci assumenda cupiditate voluptatem vel nihil sed perferendis, natus rem! Ea neque cumque cupiditate libero doloremque!</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="text-center">
+		<a href="" class="btn btn-sm btn-default">All causes</a>
+	</div>
+</div>
+<div class="section-light">
+	<div class="container">
+		<div class="row grid">
+			<div class="col col-lg-4 col-md-4 col-sm-6">
+				<header class="heading">
+					<p>What we are doing</p>
+					<h2>Our activities</h2>
+				</header>
+				<p class="lead">Aliquid nisi architecto deleniti quia officiis officia minima, voluptas repellat ipsa excepturi impedit.</p>
+			</div>
+			<div class="col col-lg-4 col-md-4 col-sm-6">
+				<div class="feature">
+					<div class="icon-b">
+						<i class="fa fa-money"></i>
+					</div>
+					<h3>Fundraising</h3>
+					<p>Magni accusantium quod amet esse voluptate possimus aperiam rem, officiis quam ipsa facere aspernatur nam, impedit obcaecati consectetur accusamus soluta dolorem illo.</p>
+				</div>
+			</div>
+			<div class="col col-lg-4 col-md-4 col-sm-6">
+				<div class="feature">
+					<div class="icon-b">
+						<i class="fa fa-handshake-o"></i>
+					</div>
+					<h3>Volunteering</h3>
+					<p>Sint ipsam iure deleniti obcaecati, sequi nihil iusto, repudiandae maiores quos tenetur aperiam. Odio officia facere dolore aliquam magni atque dolor voluptatem.</p>
+				</div>
+			</div>
+			<div class="col col-lg-4 col-md-4 col-sm-6">
+				<div class="feature">
+					<div class="icon-b">
+						<i class="fa fa-home"></i>
+					</div>
+					<h3>Housing</h3>
+					<p>Fuga nostrum, reprehenderit nobis atque ipsa, alias iure earum saepe aspernatur iusto accusamus recusandae similique id, illo nihil, sint dolorum ad eum!</p>
+				</div>
+			</div>
+			<div class="col col-lg-4 col-md-4 col-sm-6">
+				<div class="feature">
+					<div class="icon-b">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+					<h3>Education</h3>
+					<p>Facere quaerat debitis in nostrum. Laboriosam tempora sequi quidem provident alias corporis voluptate soluta, ipsam, officiis esse hic nemo suscipit totam dolore.</p>
+				</div>
+			</div>
+			<div class="col col-lg-4 col-md-4 col-sm-6">
+				<div class="feature">
+					<div class="icon-b">
+						<i class="fa fa-heart"></i>
+					</div>
+					<h3>Charity</h3>
+					<p>Magni iste ratione saepe non soluta incidunt repellendus, fuga obcaecati facere sint, eveniet minima impedit? Optio cumque eligendi pariatur maxime, illo ipsa.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-dark fast-donate">
+	<div class="container no-top-padding no-bottom-padding">
+		<div class="row">
+			<div class="col col-lg-5 col-md-5 col-sm-5">
+				<header class="heading">
+					<p>Hope starts here</p>
+					<h2><i>Fast</i> donate</h2>
+				</header>
+			</div>
+			<div class="col col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2">
+				<a href="donate.html" class="btn btn-lg btn-primary">Donate</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<header class="heading text-center">
+		<p>In the world of charity</p>
+		<h2>Recent News</h2>
+	</header>
+	<div class="row grid posts">
+		<div class="col-lg-6 col-md-6">
+			<div class="post">
+				<header class="post-header">
+					<div class="post-thumb">
+						<img src="images/news-photo-1.jpg" width="1000" height="550" alt="">
+					</div>
+					<div class="post-header-inner">
+						<h3><a href="article.html">Dolor expedita atque facilis enim consequuntur.</a></h3>
+						<div class="post-meta">
+							<div class="post-meta-item">
+								<i class="fa fa-calendar"></i> February 12, 2017
+							</div>
+							<div class="post-meta-item">
+								<a href="article.html#comments"><i class="fa fa-comments"></i> 16</a>
+							</div>
+						</div>
+					</div>
+				</header>
+				<div class="post-entry">
+					<p>Architecto officia itaque, quaerat autem accusantium eligendi, mollitia voluptates aperiam veniam assumenda magnam quasi possimus! Quidem natus in hic numquam atque labore, sunt quia consequuntur dolore, corporis ratione aperiam itaque eaque error pariatur.</p>
+					<a href="article.html" class="btn-more">Read more</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6">
+			<div class="post">
+				<header class="post-header">
+					<div class="post-thumb">
+						<img src="images/news-photo-2.jpg" width="1000" height="550" alt="">
+					</div>
+					<div class="post-header-inner">
+						<h3><a href="article.html">Fuga voluptates vero dicta beatae modi.</a></h3>
+						<div class="post-meta">
+							<div class="post-meta-item">
+								<i class="fa fa-calendar"></i> February 12, 2017
+							</div>
+							<div class="post-meta-item">
+								<a href="article.html#comments"><i class="fa fa-comments"></i> 16</a>
+							</div>
+						</div>
+					</div>
+				</header>
+				<div class="post-entry">
+					<p>Debitis voluptatum quasi maxime! Delectus alias tempore commodi optio laudantium incidunt ipsa consequuntur temporibus, cupiditate expedita recusandae excepturi dignissimos, rem odio perspiciatis rerum numquam.</p>
+					<a href="article.html" class="btn-more">Read more</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6">
+			<div class="post">
+				<header class="post-header">
+					<div class="post-thumb">
+						<img src="images/news-photo-3.jpg" width="1000" height="550" alt="">
+					</div>
+					<div class="post-header-inner">
+						<h3><a href="article.html">Repudiandae tempora, qui aspernatur consequatur.</a></h3>
+						<div class="post-meta">
+							<div class="post-meta-item">
+								<i class="fa fa-calendar"></i> February 10, 2017
+							</div>
+							<div class="post-meta-item">
+								<a href="article.html#comments"><i class="fa fa-comments"></i> 12</a>
+							</div>
+						</div>
+					</div>
+				</header>
+				<div class="post-entry">
+					<p>Illo quisquam, error omnis consequuntur, totam vel culpa, dignissimos ut distinctio provident rerum optio quod debitis cum dolores laborum sed dolorum veritatis ad molestiae nemo neque at! Magnam perspiciatis tempora repudiandae cumque quam nulla qui! Necessitatibus quod cum doloremque quidem fugit porro!</p>
+					<a href="article.html" class="btn-more">Read more</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6">
+			<div class="post">
+				<header class="post-header">
+					<div class="post-thumb">
+						<img src="images/news-photo-4.jpg" width="1000" height="550" alt="">
+					</div>
+					<div class="post-header-inner">
+						<h3><a href="article.html">Suscipit sequi necessitatibus reiciendis.</a></h3>
+						<div class="post-meta">
+							<div class="post-meta-item">
+								<i class="fa fa-calendar"></i> February 7, 2017
+							</div>
+							<div class="post-meta-item">
+								<a href="article.html#comments"><i class="fa fa-comments"></i> 24</a>
+							</div>
+						</div>
+					</div>
+				</header>
+				<div class="post-entry">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eligendi dolore, placeat minus voluptates corporis. Optio voluptatum non, doloribus architecto, placeat eligendi autem ut explicabo iure illo incidunt. Omnis aperiam vero maiores similique optio fugiat ipsa tempore nihil distinctio sed facere quia cumque quos, ullam, possimus sapiente voluptate explicabo deleniti quam. Facere voluptatibus quaerat excepturi asperiores fugiat, recusandae velit iusto hic quasi, eveniet ea nobis quia optio odit voluptatem veniam!</p>
+					<a href="article.html" class="btn-more">Read more</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<a href="news.html" class="btn btn-sm btn-default">All news</a>
+	</div>
+</div>
+<div class="section-light">
+	<div class="container">
+		<header class="heading text-center">
+			<p>Participate with us</p>
+			<h2>Events</h2>
+		</header>
+		<div class="row">
+			<div class="col col-lg-6 col-md-6">
+				<div class="post post-card post-event">
+					<header class="post-header">
+						<div class="post-meta post-date">
+							<i class="fa fa-calendar"></i> May 15<br> 2018
+						</div>
+						<div class="post-thumb">
+							<img src="images/events-photo-1.jpg" width="1000" height="550" alt="">
+						</div>
+						<div class="post-header-inner">
+							<h3><a href="event.html">Dance contest for charity</a></h3>
+							<div class="post-meta">
+								<div class="post-meta-item">
+									<i class="fa fa-clock-o"></i> 16 - 20
+								</div>
+								<div class="post-meta-item">
+									<i class="fa fa-map-marker"></i> Boston, USA
+								</div>
+							</div>
+						</div>
+						<a href="event.html" class="btn btn-lg btn-default">Join</a>
+					</header>
+					<div class="countdown" data-countdown="2018/05/15"></div>
+				</div>
+			</div>
+			<div class="col col-lg-6 col-md-6">
+				<div class="posts-list">
+					<div class="post post-event">
+						<header class="post-header">
+							<div class="post-meta post-date">
+								<i class="fa fa-calendar"></i> Jun 11<br> 2018
+							</div>
+							<h3><a href="event.html">The Berlin charity concert</a></h3>
+							<div class="post-meta">
+								<div class="post-meta-item">
+									<i class="fa fa-clock-o"></i> 18 - 20
+								</div>
+								<div class="post-meta-item">
+									<i class="fa fa-map-marker"></i> Berlin, Germany
+								</div>
+							</div>
+						</header>
+					</div>
+					<div class="post post-event">
+						<header class="post-header">
+							<div class="post-meta post-date">
+								<i class="fa fa-calendar"></i> Jul 15<br> 2018
+							</div>
+							<h3><a href="event.html">Let's сlean our parks</a></h3>
+							<div class="post-meta">
+								<div class="post-meta-item">
+									<i class="fa fa-clock-o"></i> 10 - 16
+								</div>
+								<div class="post-meta-item">
+									<i class="fa fa-map-marker"></i> Sydney, Australia
+								</div>
+							</div>
+						</header>
+					</div>
+					<div class="post post-event">
+						<header class="post-header">
+							<div class="post-meta post-date">
+								<i class="fa fa-calendar"></i> Aug 21<br> 2018
+							</div>
+							<h3><a href="event.html">Visit children in a hospice</a></h3>
+							<div class="post-meta">
+								<div class="post-meta-item">
+									<i class="fa fa-clock-o"></i> 10 - 16
+								</div>
+								<div class="post-meta-item">
+									<i class="fa fa-map-marker"></i> Moscow, Russia
+								</div>
+							</div>
+						</header>
+					</div>
+					<div class="post post-event">
+						<header class="post-header">
+							<div class="post-meta post-date"><i class="fa fa-calendar"></i> Sep 27<br> 2018</div>
+							<h3><a href="event.html">Tree Planting and Forest Cleaning</a></h3>
+							<div class="post-meta">
+								<div class="post-meta-item">
+									<i class="fa fa-clock-o"></i> 10 - 16
+								</div>
+								<div class="post-meta-item">
+									<i class="fa fa-map-marker"></i> New York, USA
+								</div>
+							</div>
+						</header>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="text-center">
+			<a href="events.html" class="btn btn-sm btn-default">Check all events</a>
+		</div>
+	</div>
+</div>
+<div class="section-dark section-overlay section-stories">
+	<div class="container">
+		<div class="row">
+			<div class="col col-lg-8 col-lg-offset-2 text-center">
+				<div class="video-intro">
+					<h2 class="title"><i>Stories</i> from<br> volunteers</h2>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, est iure, animi alias dignissimos ducimus voluptates vitae.</p>
+					<a href="https://vimeo.com/groups/royaltyfree/videos/29565533" class="btn-play btn-popup mfp-iframe">
+						<i class="fa fa-play"></i>
+						Play
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<header class="heading text-center">
+		<p>Some words about us</p>
+		<h2>Testimonials</h2>
+	</header>
+	<div class="owl-carousel" data-slideshow-settings='{"responsive":{"0":{"items":1}, "767":{"items":2}, "992":{"items":3}}, "margin":50, "nav":false}'>
+		<blockquote class="no-margin">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis officia provident vitae quaerat tempora, nulla animi sit! Deserunt delectus impedit illum ut voluptatibus ullam, reiciendis molestiae libero facilis ducimus labore ex magnam asperiores totam amet, inventore eveniet beatae maxime quaerat.</p>
+			<footer>
+				<div class="author-photo">
+					<img src="images/avatar-1.jpg" width="100" height="100" alt="">
+				</div>
+				<cite>John Smith<br> CEO, Iceline</cite>
+			</footer>
+		</blockquote>
+		<blockquote class="no-margin">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, ullam quos at. Commodi possimus laudantium inventore deserunt maiores doloribus repellat illo eveniet laborum repudiandae, assumenda unde numquam culpa recusandae modi eius odit harum ullam dicta vitae minima ipsum? Harum, fugiat.</p>
+			<footer>
+				<div class="author-photo">
+					<img src="images/avatar-2.jpg" width="80" height="80" alt="">
+				</div>
+				<cite>Ann Roberts<br> CEO, Good Box</cite>
+			</footer>
+		</blockquote>
+		<blockquote class="no-margin">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus excepturi optio ipsum totam hic incidunt doloribus, tempora sapiente omnis expedita accusantium veniam quibusdam et ex dolores cum molestias. Aliquam culpa ea, neque ipsa quas atque nam odit doloremque fugit placeat.</p>
+			<footer>
+				<div class="author-photo">
+					<img src="images/avatar-3.jpg" width="80" height="80" alt="">
+				</div>
+				<cite>Robert Smith<br> CEO, ZUSA</cite>
+			</footer>
+		</blockquote>
+		<blockquote class="no-margin">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis officia provident vitae quaerat tempora, nulla animi sit! Deserunt delectus impedit illum ut voluptatibus ullam, reiciendis molestiae libero facilis ducimus labore ex magnam asperiores totam amet, inventore eveniet beatae maxime quaerat.</p>
+			<footer>
+				<div class="author-photo">
+					<img src="images/avatar-1.jpg" width="100" height="100" alt="">
+				</div>
+				<cite>John Smith<br> CEO, Iceline</cite>
+			</footer>
+		</blockquote>
+		<blockquote class="no-margin">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, ullam quos at. Commodi possimus laudantium inventore deserunt maiores doloribus repellat illo eveniet laborum repudiandae, assumenda unde numquam culpa recusandae modi eius odit harum ullam dicta vitae minima ipsum? Harum, fugiat.</p>
+			<footer>
+				<div class="author-photo">
+					<img src="images/avatar-2.jpg" width="80" height="80" alt="">
+				</div>
+				<cite>Ann Roberts<br> CEO, Good Box</cite>
+			</footer>
+		</blockquote>
+		<blockquote class="no-margin">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus excepturi optio ipsum totam hic incidunt doloribus, tempora sapiente omnis expedita accusantium veniam quibusdam et ex dolores cum molestias. Aliquam culpa ea, neque ipsa quas atque nam odit doloremque fugit placeat.</p>
+			<footer>
+				<div class="author-photo">
+					<img src="images/avatar-3.jpg" width="80" height="80" alt="">
+				</div>
+				<cite>Robert Smith<br> CEO, ZUSA</cite>
+			</footer>
+		</blockquote>
+	</div>
+</div>
+<div class="section-light">
+	<div class="container no-padding">
+		<div class="owl-carousel partners text-center no-margin" data-slideshow-settings='{"responsive":{"0":{"items":1}, "767":{"items":3}, "1027":{"items":5}}, "dots":false, "nav":false}'>
+			<div class="partners-item">
+				<img src="images/partner-logo-1.png" width="60" height="35" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-2.png" width="60" height="43" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-3.png" width="60" height="60" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-4.png" width="60" height="50" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-5.png" width="60" height="41" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-1.png" width="60" height="35" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-2.png" width="60" height="43" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-3.png" width="60" height="60" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-4.png" width="60" height="50" alt="">
+			</div>
+			<div class="partners-item">
+				<img src="images/partner-logo-5.png" width="60" height="41" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+        </main>
+        <!-- END MAIN CONTENT -->
+
+        <!-- BEGIN FOOTER -->
+        <% include partial/footer.ejs %>
+        <!-- END FOOTER -->
+
+    </div>
+
+    <!-- Gmaps API -->
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="scripts/map-objects-data.js"></script>
+
+    <!-- Plugins js -->
+    <script src="scripts/plugins.js"></script>
+
+    <!-- Main js -->
+    <script src="scripts/main.js"></script>
+
+</body>
 </html>
