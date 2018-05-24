@@ -1,2 +1,2 @@
 # atutu
-Atutu Project
+Atutu Project init by team B
