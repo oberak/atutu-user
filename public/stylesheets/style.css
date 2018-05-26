@@ -26,8 +26,8 @@ input, button {
   overflow: hidden;
   position: relative;
   width: 900px;
-  height: 600px;
-  margin: 0 auto 100px;
+  height: 670px;
+  margin: 0 auto 50px;
   background: #fff;
 }
 
@@ -57,6 +57,10 @@ input, button {
 .cont.s--signup .sub-cont {
   -webkit-transform: translate3d(-640px, 0, 0);
           transform: translate3d(-640px, 0, 0);
+}
+.error{
+  font-size: 15px;
+  color: red;
 }
 
 button {
@@ -198,7 +202,7 @@ h2 {
 label {
   display: block;
   width: 260px;
-  margin: 15px auto 0;
+  margin: 0 auto;
   text-align: center;
 }
 label span {
@@ -212,8 +216,8 @@ label span {
 input {
   display: block;
   width: 100%;
-  margin-top: 1px;
-  padding-bottom: 2px;
+  margin-top: 0px;
+  padding-bottom: 0px;
   font-size: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   text-align: center;
@@ -227,7 +231,7 @@ input {
 }
 
 .submit {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
   background: #d4af7a;
   text-transform: uppercase;
@@ -274,4 +278,11 @@ input {
 .icon-link--twitter {
   left: auto;
   right: 5px;
+}
+.move{
+  margin-left: 20%;
+}
+p{
+  color: cyan;
+  font-weight: bold;
 }

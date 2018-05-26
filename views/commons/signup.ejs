@@ -5,26 +5,43 @@
   <meta charset="UTF-8">
   <title>Registration</title>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-      <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/demo.css">
+  <link rel="stylesheet" href="/stylesheets/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/stylesheets/set2.css">
+  <script src="/javascripts/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="/javascripts/jquery.validate.js" charset="utf-8"></script>
+  <script src="/javascripts/classie.js" charset="utf-8"></script>
 </head>
-<body>
+<body style="background-color:#7878ff;">
+  <div class="container">
+
   <p class="tip">Registration to <b>ATUTU</b></p>
 <div class="cont">
   <!-- sign in start -->
   <form name="frm" action="/signin" method="post">
   <div class="form sign-in">
     <h2>Welcome back,</h2>
-    <label>
-      <span>Email or ID</span>
-      <input type="type" name="email" id="email" />
-    </label>
-    <label>
-      <span>Password</span>
-      <input type="password" name="password" id="password" />
-    </label>
+    <span class="input input--fumi">
+      <input class="input__field input__field--fumi" type="text" name="email" id="emailIn" />
+      <label class="input__label input__label--fumi" for="emailIn">
+        <i class="fa fa-fw fa-key icon icon--fumi"></i>
+        <span class="input__label-content input__label-content--fumi">Email or ID</span>
+      </label>
+    </span>
+    <span class="input input--fumi">
+      <input class="input__field input__field--fumi" type="password" name="password" id="passwordIn" />
+      <label class="input__label input__label--fumi" for="passwordIn">
+        <i class="fa fa-fw fa-unlock-alt icon icon--fumi"></i>
+        <span class="input__label-content input__label-content--fumi">Password</span>
+      </label>
+    </span>
     <p class="forgot-pass">Forgot password?</p>
-    <button type="submit" class="submit">Sign In</button>
-    <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+    <div class="move">
+      <button type="submit" class="submit">Sign In</button>
+      <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+    </div>
   </div>
 </form>
   <div class="sub-cont">
@@ -42,45 +59,109 @@
         <span class="m--in">Sign In</span>
       </div>
     </div>
-    <form name="frm" action="/signup" method="post">
+    <form id="sign_up" name="frm" action="/signup" method="post">
     <div class="form sign-up">
-      <h2>Sign in for Help</h2>
-      <label>
-        <span>Name</span>
-        <input type="text" name="name" id="name" required />
-      </label>
-      <label>
-        <span>Id</span>
-        <input type="text" name="id" id="id" required />
-      </label>
-      <label>
-        <span>Email</span>
-        <input type="email" name="email" id="email" />
-      </label>
-      <label>
-        <span>Phone</span>
-        <input type="phone" name="phone" id="phone" />
-      </label>
-      <label>
-        <span>Password</span>
-        <input type="password" name="password" id="password" required/>
-      </label>
-      <label>
-        <span>Confirm Password</span>
-        <input type="password" name="confpassword" id="confpassword" required/>
-      </label>
-      <button type="submit" class="submit">Sign Up</button>
-      <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+      <h2 >Sign up for Help</h2>
+      <span class="input input--fumi">
+        <input class="input__field input__field--fumi" type="text" name="name" id="name" required/>
+        <label class="input__label input__label--fumi" for="name">
+          <i class="fa fa-fw fa-user icon icon--fumi"></i>
+          <span class="input__label-content input__label-content--fumi">Name</span>
+        </label>
+      </span>
+      <span class="input input--fumi">
+        <input class="input__field input__field--fumi" type="text" name="id" id="id" required/>
+        <label class="input__label input__label--fumi" for="id">
+          <i class="fa fa-fw fa-key icon icon--fumi"></i>
+          <span class="input__label-content input__label-content--fumi">ID</span>
+        </label>
+      </span>
+      <span class="input input--fumi">
+        <input class="input__field input__field--fumi" type="email" name="email" id="email" />
+        <label class="input__label input__label--fumi" for="email">
+          <i class="fa fa-fw fa-at icon icon--fumi"></i>
+          <span class="input__label-content input__label-content--fumi">Email</span>
+      </span>
+      <span class="input input--fumi">
+        <input class="input__field input__field--fumi" type="phone" name="phone" id="phone" />
+        <label class="input__label input__label--fumi" for="phone">
+          <i class="fa fa-fw fa-mobile icon icon--fumi"></i>
+          <span class="input__label-content input__label-content--fumi">Phone</span>
+        </label>
+      </span>
+      <span class="input input--fumi">
+        <input class="input__field input__field--fumi" type="password" name="password" id="password" />
+        <label class="input__label input__label--fumi" for="password">
+          <i class="fa fa-fw fa-unlock-alt icon icon--fumi"></i>
+          <span class="input__label-content input__label-content--fumi">Password</span>
+        </label>
+      </span>
+      <span class="input input--fumi">
+        <input class="input__field input__field--fumi" type="password" name="confpassword" id="confpassword" />
+        <label class="input__label input__label--fumi" for="confpassword">
+          <i class="fa fa-fw fa-check icon icon--fumi"></i>
+          <span class="input__label-content input__label-content--fumi">Confirm Password</span>
+        </label>
+      </span>
+      <div class="move">
+        <button type="submit" class="submit">Sign Up</button>
+        <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+      </div>
+
     </div>
     </form>
   </div>
 </div>
   <script type="text/javascript">
-      document.querySelector('.img__btn').addEventListener('click', function() {
-        document.querySelector('.cont').classList.toggle('s--signup');
+            $(function () {
+              $.validator.addMethod("pwcheck", function(value) {
+                      return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+                          && /[a-z]/.test(value) // has a lowercase letter
+                          && /[A-Z]/.test(value) // has a uppercase letter
+                          && /\d/.test(value) // has a digit
+                   });
+              $.validator.addMethod("pwcheck2", function (value) {
+                if( value.indexOf($('#email').val()) >= 0 ){
+                  return false;
+                }
+                return true;
+              });
+                $('#sign_up').validate({
+                    rules: {
+                        'confpassword': {
+                            equalTo: '[name="password"]'
+                        },
+                        'password':{
+                          pwcheck: true,
+                          pwcheck2: true
+                        }
+                    },
+                    messages: {
+                      password: {
+                        pwcheck:"Please input at least 1 Upper,  1 lower, 1 digit...",
+                        pwcheck2: "Do not contain your Email..."
+                      }
+                    }
+
+                });
+                $('#id').blur(function () {
+                  var data = { id: $('#id').val()};
+                  if(data.id == '') return ;
+                  $.ajax({url: "/signup/duplicate", data:data, type: 'POST', success: function (result) {
+                    if (result.status == false) {
+                      alert(result.msg);
+                      $('#id').val('');
+                      $('#id').focus();
+                    }
+                  }});
+                });
+            });
+            document.querySelector('.img__btn').addEventListener('click', function() {
+            document.querySelector('.cont').classList.toggle('s--signup');
       });
   </script>
 
+</div>
 </body>
 </div>
 </html>

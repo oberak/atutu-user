@@ -11,8 +11,6 @@
             <% include partial/header.ejs %>
         <!-- END HEADER -->
 
-
-
         <!-- BEGIN MAIN CONTENT -->
         <main class="site-content">
 
@@ -666,4 +664,9 @@
     <script src="scripts/main.js"></script>
 
 </body>
+<script type="text/javascript">
+  if('<%=user%>'){
+    alert('Have session ,<%= user.email %>');
+  }
+</script>
 </html>

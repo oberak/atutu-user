@@ -9,12 +9,10 @@
 
         <!-- BEGIN HEADER -->
             <% include ../partial/header.ejs %>
-        <!-- END HEADER -->
+            <link rel="stylesheet" href="/stylesheets/cropper.css">
 
 
-
-        <!-- BEGIN MAIN CONTENT -->
-        <main class="site-content">
+<main class="site-content">
 
 <div class="container no-top-padding">
   <ol class="breadcrumb">
@@ -25,7 +23,7 @@
   <header class="page-header">
     <h1>Create Campaign</h1>
   </header>
-  <form class="checkout-form form-horizontal">
+  <form class="checkout-form form-horizontal" name="frm" enctype="multipart/form-data">
     <h2>Campaign details</h2>
     <div class="form-group">
       <label class="col col-lg-2 col-md-2 control-label" for="name">Campaign Name <span class="required">*</span></label>
@@ -36,7 +34,7 @@
     <div class="form-group">
       <label class="col col-lg-2 col-md-2 control-label" for="country">Categories <span class="required">*</span></label>
       <div class="col col-lg-10 col-md-10">
-        <select id="country" name="country" class="form-control selectpicker" >
+        <select id="country" name="country" class="form-control selectpicker" multiple>
           <option value="">Select a country…</option>
           <option value="AL">Albania</option>
           <option value="DZ">Algeria</option>
@@ -48,11 +46,10 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="last-name">Image<span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="file" formenctype="multipart/form-data" name="image" id="image" class="form-control" placeholder="Campaign Profile" required>
-      </div>
-    </div>
+      <label class="col col-lg-2 col-md-2 control-label " for="last-name">Image<span class="required">*</span></label>
+      <div class="col col-lg-9 col-md-9">
+        <input type="file" name="image" id="image" class="form-control " placeholder="Campaign Profile" required accept="image/*">
+  </div>
     <div class="form-group">
       <label class="col col-lg-2 col-md-2 control-label" for="company-name">Company name</label>
       <div class="col col-lg-10 col-md-10">
@@ -164,6 +161,7 @@
 
     <!-- Main js -->
     <script src="/scripts/main.js"></script>
+    <script src="/javascripts/cropper.js" charset="utf-8"></script>
 
 </body>
 </html>

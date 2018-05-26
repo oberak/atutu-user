@@ -28,17 +28,21 @@ db.on('error',console.error.bind(console,'MongoDB connection error:'));
 
 //session : before routing
     app.use(session({
-          secret: 'XailEJS#@S12S',// any string for security
+          secret: 'AN12@~1!/y8&^*@$%<<,',// any string for security
           resave: false,
           saveUninitialized : true
 }));
 
+app.use(function (req, res, next) {
+  res.locals.user = req.session.user;
+  next();
+});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/campaign',campaign);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(req, res, next) { 
   next(createError(404));
 });
 

@@ -33,10 +33,19 @@ router.post('/signin', function(req, res, next) {
     if(user == null || !User.compare(req.body.password, user.password)){
       res.redirect('/signup');
     }else {
+      req.session.user = { name: user.name, email: user.email, role:user.role };
       res.redirect('/');
     }
   });
 
 });
+router.post('/signup/duplicate', function(req, res, next) {
+  User.findOne({id:req.body.id},function (err, rtn) {
+    if(err) throw err;
+    if(rtn != null) res.json({ status: false, msg: 'Duplicate user id!!!'});
+    else res.json({ status: true});
+  });
+});
+
 
 module.exports = router;
