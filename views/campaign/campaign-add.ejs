@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zxx">
+
 <head>
   <% include ../partial/head.ejs %>
 </head>
-<body >
 
-    <div id="wrapper" class="wrapper">
+<body>
 
-        <!-- BEGIN HEADER -->
-            <% include ../partial/header.ejs %>
-            <link rel="stylesheet" href="/stylesheets/cropper.css">
+  <div id="wrapper" class="wrapper">
 
+    <!-- BEGIN HEADER -->
+    <% include ../partial/header.ejs %>
+      <link rel="stylesheet" href="/stylesheets/cropper.css">
 
-<main class="site-content">
+      <main class="site-content">
 
-<div class="container no-top-padding">
-  <ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li class="active">Checkout</li>
-  </ol>
-  <header class="page-header">
-    <h1>Create Campaign</h1>
-  </header>
-  <form class="checkout-form form-horizontal" name="frm" enctype="multipart/form-data">
-    <h2>Campaign details</h2>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="name">Campaign Name <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="camp-name" id="camp-name" class="form-control" placeholder="Heart Of Help" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="country">Categories <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <select id="country" name="country" class="form-control selectpicker" multiple>
+        <div class="container no-top-padding">
+          <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li class="active">Checkout</li>
+          </ol>
+          <header class="page-header">
+            <h1>Create Campaign</h1>
+          </header>
+          <form class="checkout-form form-horizontal" name="frm" enctype="multipart/form-data">
+            <h2>Campaign details</h2>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="name">Campaign Name <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
+                <input type="text" name="camp-name" id="camp-name" class="form-control" placeholder="Heart Of Help" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="country">Categories <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
+                <select id="country" name="country" class="form-control selectpicker" multiple>
           <option value="">Select a country…</option>
           <option value="AL">Albania</option>
           <option value="DZ">Algeria</option>
@@ -43,125 +44,126 @@
           <option value="AL">Albania</option>
           <option value="DZ">Algeria</option>
         </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label " for="last-name">Image<span class="required">*</span></label>
-      <div class="col col-lg-9 col-md-9">
-        <input type="file" name="image" id="image" class="form-control " placeholder="Campaign Profile" required accept="image/*">
-  </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="company-name">Company name</label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="company-name" id="company-name" class="form-control">
-      </div>
-    </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label " for="last-name">Image<span class="required">*</span></label>
+              <div class="col col-lg-9 col-md-9">
+                <input type="file" name="image" id="image" class="form-control " placeholder="Campaign Profile" required accept="image/*">
+              </div>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="company-name">Company name</label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="company-name" id="company-name" class="form-control">
+                </div>
+              </div>
 
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="city">Town/city <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="city" id="city" class="form-control" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="address" id="address" class="form-control" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="postcode">Postcode/ZIP <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="postcode" id="postcode" class="form-control" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="phone">Phone <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="phone" id="phone" class="form-control" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="email">Email <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="email" id="email" class="form-control" placeholder="john@yoursite.com" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
-        <div class="checkbox">
-          <label>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="city">Town/city <span class="required">*</span></label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="city" id="city" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="address" id="address" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="postcode">Postcode/ZIP <span class="required">*</span></label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="postcode" id="postcode" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="phone">Phone <span class="required">*</span></label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="phone" id="phone" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="email">Email <span class="required">*</span></label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="email" id="email" class="form-control" placeholder="john@yoursite.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
+                  <div class="checkbox">
+                    <label>
             <input type="checkbox" name="create-account" id="create-account" value="create-account">
             Create an account?
           </label>
-        </div>
-      </div>
-    </div>
-    <div id="password-group" class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="new-password">Password <span class="required">*</span></label>
-      <div class="col col-lg-10 col-md-10">
-        <input type="text" name="new-password" id="new-password" class="form-control" required>
-      </div>
-    </div>
-    <hr>
-    <h2>Additional information</h2>
-    <div class="form-group">
-      <label class="col col-lg-2 col-md-2 control-label" for="notes">Order notes</label>
-      <div class="col col-lg-10 col-md-10">
-        <textarea class="form-control" name="notes" id="notes" rows="10"></textarea>
-      </div>
-    </div>
-    <hr>
-    <h2>Your order</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr class="active">
-          <th>Product</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Beige bag × 1</td>
-          <td>$55.00</td>
-        </tr>
-        <tr>
-          <th>Subtotal</th>
-          <td>$55.00</td>
-        </tr>
-        <tr>
-          <th>Total</th>
-          <td>$55.00</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <button type="submit" class="btn btn-lg btn-primary">Place order</button>
-    </div>
-  </form>
+                  </div>
+                </div>
+              </div>
+              <div id="password-group" class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="new-password">Password <span class="required">*</span></label>
+                <div class="col col-lg-10 col-md-10">
+                  <input type="text" name="new-password" id="new-password" class="form-control" required>
+                </div>
+              </div>
+              <hr>
+              <h2>Additional information</h2>
+              <div class="form-group">
+                <label class="col col-lg-2 col-md-2 control-label" for="notes">Order notes</label>
+                <div class="col col-lg-10 col-md-10">
+                  <textarea class="form-control" name="notes" id="notes" rows="10"></textarea>
+                </div>
+              </div>
+              <hr>
+              <h2>Your order</h2>
+              <table class="table table-bordered">
+                <thead>
+                  <tr class="active">
+                    <th>Product</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Beige bag × 1</td>
+                    <td>$55.00</td>
+                  </tr>
+                  <tr>
+                    <th>Subtotal</th>
+                    <td>$55.00</td>
+                  </tr>
+                  <tr>
+                    <th>Total</th>
+                    <td>$55.00</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-primary">Place order</button>
+              </div>
+          </form>
 
-</div>
+          </div>
 
 
-        </main>
-        <!-- END MAIN CONTENT -->
+      </main>
+      <!-- END MAIN CONTENT -->
 
-        <!-- BEGIN FOOTER -->
-        <% include ../partial/footer.ejs %>
+      <!-- BEGIN FOOTER -->
+      <% include ../partial/footer.ejs %>
         <!-- END FOOTER -->
 
-    </div>
+        </div>
 
-    <!-- Gmaps API -->
-    <script src="http://maps.google.com/maps/api/js"></script>
-    <script src="/scripts/map-objects-data.js"></script>
+        <!-- Gmaps API -->
+        <script src="http://maps.google.com/maps/api/js"></script>
+        <script src="/scripts/map-objects-data.js"></script>
 
-    <!-- Plugins js -->
-    <script src="/scripts/plugins.js"></script>
+        <!-- Plugins js -->
+        <script src="/scripts/plugins.js"></script>
 
-    <!-- Main js -->
-    <script src="/scripts/main.js"></script>
-    <script src="/javascripts/cropper.js" charset="utf-8"></script>
+        <!-- Main js -->
+        <script src="/scripts/main.js"></script>
+        <script src="/javascripts/cropper.js" charset="utf-8"></script>
 
 </body>
+
 </html>
