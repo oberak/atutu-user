@@ -15,6 +15,8 @@ router.post('/signup', function(req, res, next) {
   user.name = req.body.name;
   user.phone = req.body.phone;
   user.id = req.body.id;
+  if(req.body.email == '') user.email = 'user'+req.body.id+'@gmail.com';
+  else
   user.email = req.body.email;
   user.password = req.body.password;
   user.role = req.body.role;
@@ -27,10 +29,10 @@ router.post('/signup', function(req, res, next) {
 
 router.post('/signin', function(req, res, next) {
 
-  User.findOne({$or: [{email: req.body.email},{id: req.body.email}]} ,function (err,user) {
+  User.findOne({$or: [{email: req.body.emailIn},{id: req.body.emailIn}]} ,function (err,user) {
     if(err) throw err;
     console.log('call it',user);
-    if(user == null || !User.compare(req.body.password, user.password)){
+    if(user == null || !User.compare(req.body.passwordIn, user.password)){
       res.redirect('/signup');
     }else {
       req.session.user = { name: user.name, email: user.email, role:user.role };

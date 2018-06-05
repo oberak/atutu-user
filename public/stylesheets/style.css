@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: Open Sans, 'Helvetica', Arial, sans-serif;
   background: #7878ff;
 }
 
@@ -13,7 +13,7 @@ input, button {
   border: none;
   outline: none;
   background: none;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: Open Sans, 'Helvetica', Arial, sans-serif;
 }
 
 .tip {
@@ -25,7 +25,7 @@ input, button {
 .cont {
   overflow: hidden;
   position: relative;
-  width: 900px;
+  width: 800px;
   height: 670px;
   margin: 0 auto 50px;
   background: #fff;
@@ -44,9 +44,9 @@ input, button {
 .sub-cont {
   overflow: hidden;
   position: absolute;
-  left: 640px;
+  left: 550px;
   top: 0;
-  width: 900px;
+  width: 800px;
   height: 100%;
   padding-left: 260px;
   background: #fff;
@@ -55,8 +55,8 @@ input, button {
   transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
 }
 .cont.s--signup .sub-cont {
-  -webkit-transform: translate3d(-640px, 0, 0);
-          transform: translate3d(-640px, 0, 0);
+  -webkit-transform: translate3d(-550px, 0, 0);
+          transform: translate3d(-550px, 0, 0);
 }
 .error{
   font-size: 15px;
@@ -196,7 +196,7 @@ button {
 h2 {
   width: 100%;
   font-size: 20px;
-  text-align: center;
+  text-align: inherit;
 }
 
 label {
@@ -209,7 +209,7 @@ label span {
   font-size: 12px;
   color: #8888ff;
   font-weight: bold;
-  font-family: Comic Sans MS;
+  font-family: 'Helvetica';
   text-transform: uppercase;
 }
 
@@ -229,7 +229,24 @@ input {
   font-size: 12px;
   color: #8888ff;
 }
-
+.rem a{
+  display: inline-block;
+  margin-left: 5%;
+  font-size: 13px;
+  font-weight: bold;
+}
+.rem label{
+  display: inline-block;
+  font-weight: bold;
+  font-size: 13px;
+}
+#rememberMe{
+  display: inline-block;
+  margin-left: -40%;
+}
+.rem{
+  margin-top: -4%;
+}
 .submit {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -280,7 +297,8 @@ input {
   right: 5px;
 }
 .move{
-  margin-left: 20%;
+  margin-top: 7%;
+  margin-left: 15%;
 }
 p{
   color: cyan;

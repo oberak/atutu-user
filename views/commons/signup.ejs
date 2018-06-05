@@ -13,31 +13,37 @@
   <script src="/javascripts/jquery-3.3.1.min.js" charset="utf-8"></script>
   <script src="/javascripts/jquery.validate.js" charset="utf-8"></script>
   <script src="/javascripts/classie.js" charset="utf-8"></script>
+  <script src="/javascripts/jquery.cookie.js"></script>
 </head>
 <body style="background-color:#7878ff;">
-  <div class="container">
+
 
   <p class="tip">Registration to <b>ATUTU</b></p>
 <div class="cont">
   <!-- sign in start -->
-  <form name="frm" action="/signin" method="post">
+  <form name="frmIn" action="/signin" method="post">
   <div class="form sign-in">
     <h2>Welcome back,</h2>
     <span class="input input--fumi">
-      <input class="input__field input__field--fumi" type="text" name="email" id="emailIn" />
+      <input class="input__field input__field--fumi" type="text" name="emailIn" id="emailIn" />
       <label class="input__label input__label--fumi" for="emailIn">
         <i class="fa fa-fw fa-key icon icon--fumi"></i>
         <span class="input__label-content input__label-content--fumi">Email or ID</span>
       </label>
     </span>
     <span class="input input--fumi">
-      <input class="input__field input__field--fumi" type="password" name="password" id="passwordIn" />
+      <input class="input__field input__field--fumi" type="password" name="passwordIn" id="passwordIn" />
       <label class="input__label input__label--fumi" for="passwordIn">
         <i class="fa fa-fw fa-unlock-alt icon icon--fumi"></i>
         <span class="input__label-content input__label-content--fumi">Password</span>
       </label>
     </span>
-    <p class="forgot-pass">Forgot password?</p>
+    <input type="checkbox" name="rememberMe" id="rememberMe" value="">
+    <div class="rem">
+      <label for="rememberMe">Remember Me</label>
+      <a href="#">For get Password?</a>
+    </div>
+
     <div class="move">
       <button type="submit" class="submit">Sign In</button>
       <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
@@ -83,7 +89,7 @@
           <span class="input__label-content input__label-content--fumi">Email</span>
       </span>
       <span class="input input--fumi">
-        <input class="input__field input__field--fumi" type="phone" name="phone" id="phone" />
+        <input class="input__field input__field--fumi" type="text" name="phone" id="phone" />
         <label class="input__label input__label--fumi" for="phone">
           <i class="fa fa-fw fa-mobile icon icon--fumi"></i>
           <span class="input__label-content input__label-content--fumi">Phone</span>
@@ -111,7 +117,6 @@
     </div>
     </form>
   </div>
-</div>
   <script type="text/javascript">
             $(function () {
               $.validator.addMethod("pwcheck", function(value) {
@@ -119,9 +124,19 @@
                           && /[a-z]/.test(value) // has a lowercase letter
                           && /[A-Z]/.test(value) // has a uppercase letter
                           && /\d/.test(value) // has a digit
+                          && /(\b(?:([A-Za-z0-9])(?!\2{4}))+\b)/.test(value) //don't repeate more than 2
                    });
+
+              $.validator.addMethod("idcheck",function (value) {
+                return !(/\s/.test(value)) //can't allow space
+              });
+
+              $.validator.addMethod("phcheck",function (value) {
+                return /^\d*(?:\.\d{1,2})?$/.test(value)
+              });
+
               $.validator.addMethod("pwcheck2", function (value) {
-                if( value.indexOf($('#email').val()) >= 0 ){
+                if( value.indexOf($('#email').val()) > 0 ){
                   return false;
                 }
                 return true;
@@ -131,6 +146,12 @@
                         'confpassword': {
                             equalTo: '[name="password"]'
                         },
+                        'id':{
+                          idcheck: true,
+                        },
+                        'phone':{
+                          phcheck: true,
+                        },
                         'password':{
                           pwcheck: true,
                           pwcheck2: true
@@ -138,9 +159,16 @@
                     },
                     messages: {
                       password: {
-                        pwcheck:"Please input at least 1 Upper,  1 lower, 1 digit...",
-                        pwcheck2: "Do not contain your Email..."
-                      }
+                        pwcheck:"Please input at least 1 Upper, 1 lower, 1 digit and don't more 4 same word",
+                        pwcheck2: "Do not contain your Email...",
+
+                      },
+                      id:{
+                        idcheck :"Do not allow space...",
+                      },
+                      phone:{
+                        phcheck: "Please enter phone number english only",
+                      },
                     }
 
                 });
@@ -155,6 +183,20 @@
                     }
                   }});
                 });
+                //when submit
+                frmIn.onsubmit = function () {
+                  if(frmIn.rememberMe.checked){
+                    $.cookie("emailIn", frmIn.emailIn.value,{ expires : 7});
+                  }else {
+                    $.removeCookie("emailIn");
+                  }
+                }
+
+                //on load
+                if($.cookie("emailIn")){
+                  frmIn.emailIn.value = $.cookie("emailIn");
+                  frmIn.rememberMe.checked = true;
+                }
             });
             document.querySelector('.img__btn').addEventListener('click', function() {
             document.querySelector('.cont').classList.toggle('s--signup');
