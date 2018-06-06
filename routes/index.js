@@ -15,8 +15,6 @@ router.post('/signup', function(req, res, next) {
   user.name = req.body.name;
   user.phone = req.body.phone;
   user.id = req.body.id;
-  if(req.body.email == '') user.email = 'user'+req.body.id+'@gmail.com';
-  else
   user.email = req.body.email;
   user.password = req.body.password;
   user.role = req.body.role;

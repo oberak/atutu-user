@@ -22,14 +22,13 @@ var UserSchema = new Schema({
   email: {
     type: String,
     trim: true,
-    unique: true,
   },
   password: {
     type: String,
     required: true,
     trim: true
   },
-  role:{
+  role:{ 
     type: String,
     default: 'USER'
   },

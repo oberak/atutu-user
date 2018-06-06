@@ -304,3 +304,6 @@ p{
   color: cyan;
   font-weight: bold;
 }
+.bg-gray{
+  background-color: gray;
+}

@@ -11,7 +11,7 @@
 
     <!-- BEGIN HEADER -->
     <% include ../partial/header.ejs %>
-      <link rel="stylesheet" href="/stylesheets/cropper.css">
+
 
       <main class="site-content">
 
@@ -27,123 +27,100 @@
           <form class="checkout-form form-horizontal" name="frm" enctype="multipart/form-data">
             <h2>Campaign details</h2>
             <div class="form-group">
-              <label class="col col-lg-2 col-md-2 control-label" for="name">Campaign Name <span class="required">*</span></label>
+              <label class="col col-lg-2 col-md-2 control-label" for="camp-name">Campaign Name <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
                 <input type="text" name="camp-name" id="camp-name" class="form-control" placeholder="Heart Of Help" required>
               </div>
             </div>
             <div class="form-group">
-              <label class="col col-lg-2 col-md-2 control-label" for="country">Categories <span class="required">*</span></label>
+              <label class="col col-lg-2 col-md-2 control-label" for="categories">Categories <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
-                <select id="country" name="country" class="form-control selectpicker" multiple>
-          <option value="">Select a country…</option>
-          <option value="AL">Albania</option>
-          <option value="DZ">Algeria</option>
-          <option value="AL">Albania</option>
-          <option value="DZ">Algeria</option>
-          <option value="AL">Albania</option>
-          <option value="DZ">Algeria</option>
-        </select>
+                <select id="categories" name="categories" class="form-control selectpicker" multiple>
+                  <option value="">Select a country…</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                </select>
               </div>
             </div>
             <div class="form-group">
-              <label class="col col-lg-2 col-md-2 control-label " for="last-name">Image<span class="required">*</span></label>
-              <div class="col col-lg-9 col-md-9">
+              <label class="col col-lg-2 col-md-2 control-label " for="image">Image <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
                 <input type="file" name="image" id="image" class="form-control " placeholder="Campaign Profile" required accept="image/*">
               </div>
+            </div>
               <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="company-name">Company name</label>
+                <label class="col col-lg-2 col-md-2 control-label" for="brief">Brief <span class="required">*</span></label>
                 <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="company-name" id="company-name" class="form-control">
+                  <input type="text" name="brief" id="brief" class="form-control">
                 </div>
               </div>
-
               <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="city">Town/city <span class="required">*</span></label>
+                <label class="col col-lg-2 col-md-2 control-label" for="story">Story <span class="required">*</span></label>
                 <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="city" id="city" class="form-control" required>
+                  <textarea class="form-control" name="story" id="story" rows="10"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
-                <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="address" id="address" class="form-control" required>
+                <div class="col col-lg-3 col-md-10">
+                  <select id="region" name="region" class="form-control selectpicker">
+                    <option value="">Select a Region</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                  </select>
+                </div>
+                <div class="col col-lg-3 col-md-10">
+                  <select id="city" name="city" class="form-control selectpicker">
+                    <option value="">Select a City</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                  </select>
+                </div>
+                <div class="col col-lg-4 col-md-10">
+                    <input type="text" name="address" id="address" class="form-control" placeholder="No.7,Aung Thu Kha street" required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="postcode">Postcode/ZIP <span class="required">*</span></label>
-                <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="postcode" id="postcode" class="form-control" required>
+                <label class="col col-lg-2 col-md-2 control-label" for="postcode">Goal <span class="required">*</span></label>
+                <div class="col col-lg-4 col-md-10">
+                  <input type="number" name="goal" id="goal" class="form-control" placeholder="Amount" min="1" required>
+                </div>
+                <div class="col col-lg-3 col-md-10">
+                  <input type="text" name="th" id="th" class="form-control" value="0,000" readonly>
+                </div>
+                <div class="col col-lg-3 col-md-10"  >
+                  <p style="background-color:gray;font-size:25px; color:black; text-align:center;">Kyats</p>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="phone">Phone <span class="required">*</span></label>
+                <label class="col col-lg-2 col-md-2 control-label" for="end-date">End date <span class="required">*</span></label>
                 <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="phone" id="phone" class="form-control" required>
+                  <input type="date" name="end-date" id="end-date" class="form-control" required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="email">Email <span class="required">*</span></label>
+                <label class="col col-lg-2 col-md-2 control-label" for="tags">Tags</label>
                 <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="email" id="email" class="form-control" placeholder="john@yoursite.com" required>
+                  <input type="text" name="tags" id="tags" class="form-control" placeholder="#Education, #Children" >
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
-                  <div class="checkbox">
-                    <label>
-            <input type="checkbox" name="create-account" id="create-account" value="create-account">
-            Create an account?
-          </label>
-                  </div>
-                </div>
-              </div>
-              <div id="password-group" class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="new-password">Password <span class="required">*</span></label>
-                <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="new-password" id="new-password" class="form-control" required>
-                </div>
-              </div>
-              <hr>
-              <h2>Additional information</h2>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="notes">Order notes</label>
-                <div class="col col-lg-10 col-md-10">
-                  <textarea class="form-control" name="notes" id="notes" rows="10"></textarea>
-                </div>
-              </div>
-              <hr>
-              <h2>Your order</h2>
-              <table class="table table-bordered">
-                <thead>
-                  <tr class="active">
-                    <th>Product</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Beige bag × 1</td>
-                    <td>$55.00</td>
-                  </tr>
-                  <tr>
-                    <th>Subtotal</th>
-                    <td>$55.00</td>
-                  </tr>
-                  <tr>
-                    <th>Total</th>
-                    <td>$55.00</td>
-                  </tr>
-                </tbody>
-              </table>
               <div class="text-center">
-                <button type="submit" class="btn btn-lg btn-primary">Place order</button>
+                <button type="submit" class="btn btn-lg btn-primary">Save</button>
               </div>
           </form>
-
-          </div>
-
-
+        </div>
       </main>
       <!-- END MAIN CONTENT -->
 
@@ -162,7 +139,6 @@
 
         <!-- Main js -->
         <script src="/scripts/main.js"></script>
-        <script src="/javascripts/cropper.js" charset="utf-8"></script>
 
 </body>
 
