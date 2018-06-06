@@ -21,6 +21,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/javascripts', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/javascripts', express.static(__dirname + '/node_modules/cropperjs/dist'));
+app.use('/stylesheets', express.static(__dirname + '/node_modules/cropper/dist'));
+app.use('/javascripts', express.static(__dirname + '/node_modules/jquery-cropper/dist'));
 
 mongoose.connect('mongodb://127.0.0.1/atutudb'); // studydb is anyname can insert
 var db = mongoose.connection;
@@ -42,7 +46,7 @@ app.use('/users', usersRouter);
 app.use('/campaign',campaign);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) { 
+app.use(function(req, res, next) {
   next(createError(404));
 });
 

@@ -3,6 +3,18 @@
 
 <head>
   <% include ../partial/head.ejs %>
+  <link  href="/stylesheets/cropper.css" rel="stylesheet">
+  <style media="screen">
+  .img-label img{
+    width: 25rem;
+  }
+  .img-label{
+    cursor: pointer;
+  }
+  .img-container img{
+    max-width: 100%;
+  }
+  </style>
 </head>
 
 <body>
@@ -49,7 +61,10 @@
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label " for="image">Image <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
-                <input type="file" name="image" id="image" class="form-control " placeholder="Campaign Profile" required accept="image/*">
+                    <label class="img-label" data-toggle="tooltip" title="Select photo">
+                        <img class="rounded" id="photo" src="/images/upload.png" alt="Image">
+                        <input type="file" class="sr-only" id="uploadImg" name="uploadImg" accept="images/*">
+                    </label>
               </div>
             </div>
               <div class="form-group">
@@ -118,28 +133,134 @@
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-lg btn-primary">Save</button>
+              <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#modal">MODAL - DEFAULT SIZE</button
               </div>
           </form>
         </div>
       </main>
       <!-- END MAIN CONTENT -->
 
+
+
       <!-- BEGIN FOOTER -->
       <% include ../partial/footer.ejs %>
         <!-- END FOOTER -->
 
         </div>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="largeModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="img-container">
+                        <img src="/images/upload.png" id="sourceImg" alt="">
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="crop" type="button" class="btn btn-link waves-effect">Crop</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Gmaps API -->
-        <script src="http://maps.google.com/maps/api/js"></script>
-        <script src="/scripts/map-objects-data.js"></script>
-
-        <!-- Plugins js -->
-        <script src="/scripts/plugins.js"></script>
-
-        <!-- Main js -->
-        <script src="/scripts/main.js"></script>
-
 </body>
+<script src="http://maps.google.com/maps/api/js"></script>
+<script src="/scripts/map-objects-data.js"></script>
+
+<!-- Plugins js -->
+<script src="/scripts/plugins.js"></script>
+
+<!-- Main js -->
+<script src="/scripts/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+ crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" charset="utf-8"></script>
+
+<script src="/javascripts/cropper.js" charset="utf-8"></script>
+<script src="/javascripts/jquery-cropper.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    var $modal = $('#modal');
+         var uploadImg = document.getElementById('uploadImg'); // upload file
+         uploadImg.addEventListener('change', function (e) {
+             var files = e.target.files;
+             var done = function (url) {
+               uploadImg.value = '';
+               $('#sourceImg').attr('src', url);
+               $modal.modal('show');
+             };
+             var reader;
+             var file;
+             var url;
+             if (files && files.length > 0) {
+               file = files[0];
+               if (URL) {
+                 done(URL.createObjectURL(file));
+               } else if (FileReader) {
+                 reader = new FileReader();
+                 reader.onload = function (e) {
+                   done(reader.result);
+                 };
+                 reader.readAsDataURL(file);
+               }
+             }
+         });
+         var cropper;
+         var canvas;
+         var sourceImg = document.getElementById('sourceImg');
+         $modal.on('shown.bs.modal', function () {
+           cropper = new Cropper(sourceImg, {
+               aspectRatio: 16 / 9,
+               preview: '.img-preview',
+               viewMode: 1,
+           });
+         }).on('hidden.bs.modal', function () {
+           cropper.destroy();
+           cropper = null;
+         });
+
+         $('#crop').click( function () {
+           $modal.modal('hide');
+           if (cropper) {
+             canvas = cropper.getCroppedCanvas({
+               width: 320,
+               height: 180,
+             });
+             $('#photo').attr('src', canvas.toDataURL() ); // change cropped image
+           }
+         });
+
+         $('#save').click(function(){
+             canvas.toBlob(function (blob) {
+                 var formData = new FormData(document.querySelector('form'));
+                 formData.append('photo', blob);
+                 formData.append('contents', quill.container.firstChild.innerHTML);
+                 $.ajax('/admin/posts/add', {
+                   method: 'POST',
+                   data: formData,
+                   processData: false,
+                   contentType: false,
+                   success: function (rtn) {
+                       console.log(rtn);
+                   },
+                   error: function (err) {
+                       console.log(err);
+                   },
+                   complete: function () {
+                       console.log('complate');
+                   },
+                 });
+             });
+         });
+       });
+</script>
+
 
 </html>
