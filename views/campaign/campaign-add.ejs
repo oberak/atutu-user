@@ -4,9 +4,10 @@
 <head>
   <% include ../partial/head.ejs %>
   <link  href="/stylesheets/cropper.css" rel="stylesheet">
-  <link  href="/stylesheets/remodal-default-theme.css" rel="stylesheet">
-  <link  href="/stylesheets/remodal.css" rel="stylesheet">
-
+  <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/rmodal-no-bootstrap.css" type="text/css" />
+  <script type="text/javascript" src="/javascripts/rmodal.js"></script>
   <style media="screen">
   .img-label img{
     width: 25rem;
@@ -14,22 +15,12 @@
   .img-label{
     cursor: pointer;
   }
-  .img-container img{
-    max-width: 100%;
-  }
+  /* .img-container {
 
-  .remodal-bg.with-red-theme.remodal-is-opening,
-  .remodal-bg.with-red-theme.remodal-is-opened {
-    filter: none;
-  }
+  max-width: 100%;
+} */
 
-  .remodal-overlay.with-red-theme {
-    background-color: #f44336;
-  }
 
-  .remodal.with-red-theme {
-    background: #fff;
-  }
   </style>
 </head>
 
@@ -149,21 +140,32 @@
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-lg btn-primary">Save</button>
-
+                <!-- <a href="#" id="showModal" class="btn btn-success">Show modal</a> -->
               </div>
           </form>
-        </div>
-        <div class="remodal"  data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
-          <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
-          <div>
-              <div class="img-container">
-                <img src="/images/upload.png" id="sourceImg" alt="">
+          <!-- TODO: Cropper repeate image error -->
+          <!-- <div id="modal" class="modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog animated" role="document">
+                  <div class="modal-dialog modal-lg" >
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="largeModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body" >
+                      <div class="img-container">
+                        <img src="/images/upload.png" id="sourceImg" alt="">
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-default" type="button" onclick="modal.close();">Cancel</button>
+                      <button class="btn btn-primary" id="crop" type="submit" onclick="modal.close();">Crop</button>
+                    </div>
+
+                  </div>
               </div>
-          </div>
-          <br>
-          <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-          <button data-remodal-action="confirm" id="crop" class="remodal-confirm">Crop</button>
+          </div> -->
         </div>
+
 
       </main>
       <!-- END MAIN CONTENT -->
@@ -175,7 +177,7 @@
 
 
 </body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 <script src="http://maps.google.com/maps/api/js"></script>
 <script src="/scripts/map-objects-data.js"></script>
 
@@ -186,129 +188,132 @@
 
 <!-- Main js -->
 <script src="/scripts/main.js"></script>
-<script src="/javascripts/remodal.js" charset="utf-8"></script>
-<script src="/javascripts/jquery.js" charset="utf-8"></script>
-<!-- <script src="/javascripts/modals.js" charset="utf-8"></script> -->
+
+<!-- <script src="/javascripts/jquery.js" charset="utf-8"></script>
+<script src="/javascripts/modals.js" charset="utf-8"></script>
 <script src="/javascripts/cropper.js" charset="utf-8"></script>
-<script src="/javascripts/jquery-cropper.js" charset="utf-8"></script>
+<script src="/javascripts/jquery-cropper.js" charset="utf-8"></script> -->
 
 <script type="text/javascript">
 
-window.REMODAL_GLOBALS = {
-  NAMESPACE: 'remodal',
-  DEFAULTS: {
-    hashTracking: true,
-    closeOnConfirm: true,
-    closeOnCancel: true,
-    closeOnEscape: true,
-    closeOnOutsideClick: true,
-    modifier: ''
-  }
-};
 
-  jQuery.noConflict();
+  // jQuery.noConflict();
     $(function () {
-    $modal = $('[data-remodal-id=modal]').remodal();
+      var uploadImg = document.getElementById('uploadImg');
+      uploadImg.addEventListener('change', function (e) {
+        var x = document.getElementById('uploadImg').src;
+        console.log('aaaaa',this.file);
+      })
+      // var cropper;
+      // var canvas;
+      // var sourceImg = document.getElementById('sourceImg');
+      // var $modal = new RModal(document.getElementById('modal'), {
+      //     beforeOpen: function(next) {
+      //         console.log('beforeOpen');
+      //         next();
+      //     }
+      //     , afterOpen: function() {
+      //         console.log('opened');
+      //         cropper = new Cropper(sourceImg, {
+      //               aspectRatio: 16/9,
+      //               preview: '.img-preview',
+      //               viewMode: 3,
+      //
+      //
+      //           });
+      //     }
+      //
+      //     , beforeClose: function(next) {
+      //         console.log('beforeClose');
+      //         next();
+      //     }
+      //     , afterClose: function() {
+      //         console.log('closed');
+      //     }
 
-         var uploadImg = document.getElementById('uploadImg'); // upload file
-         var sourceImg = document.getElementById('sourceImg');
-         uploadImg.addEventListener('change', function (e) {
-             var files = e.target.files;
-             var done = function (url) {
-               uploadImg.value = '';
-              sourceImg.src = url;
-               $modal.open()
-             };
-             var reader;
-             var file;
-             var url;
-             if (files && files.length > 0) {
-               file = files[0];
-               if (URL) {
-                 done(URL.createObjectURL(file));
-               } else if (FileReader) {
-                 reader = new FileReader();
-                 reader.onload = function (e) {
-                   done(reader.result);
-                 };
-                 reader.readAsDataURL(file);
-               }
-             }
-         });
-         var cropper;
-         var canvas;
+          // , content: 'Abracadabra'
 
-         /*
-         $('#crop').click( function () {
-           $modal.close();
-           if (cropper) {
-             canvas = cropper.getCroppedCanvas({
-               width: 320,
-               height: 180,
-             });
-             $('#photo').attr('src', canvas.toDataURL() ); // change cropped image
-           }
-         });*/
-         $(document).on('opened', '.remodal', function () {
-           console.log('open....');
-           cropper = new Cropper(sourceImg, {
-               aspectRatio: 16 / 9,
-               viewMode: 1,
-           });
-         });
+          // , bodyClass: 'modal-open'
+          // , dialogClass: 'modal-dialog-lg'
+          // , dialogOpenClass: 'fadeIn'
+          // , dialogCloseClass: 'fadeOut'
 
-         $(document).on('closed', '.remodal', function (e) {
-           console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
-           cropper.destroy();
-           cropper = null;
-         });
-         $('#save').click(function(){
-             canvas.toBlob(function (blob) {
-                 var formData = new FormData(document.querySelector('form'));
-                 formData.append('photo', blob);
-                 formData.append('contents', quill.container.firstChild.innerHTML);
-                 $.ajax('/admin/posts/add', {
-                   method: 'POST',
-                   data: formData,
-                   processData: false,
-                   contentType: false,
-                   success: function (rtn) {
-                       console.log(rtn);
-                   },
-                   error: function (err) {
-                       console.log(err);
-                   },
-                   complete: function () {
-                       console.log('complate');
-                   },
-                 });
-             });
-         });
-       });
+          // , focus: true
+          // , focusElements: ['input.form-control', 'textarea', 'button.btn-primary']
+
+          // , escapeClose: true
+      });
+//            var uploadImg = document.getElementById('uploadImg'); // upload file
+//            uploadImg.addEventListener('change', function (e) {
+//                var files = e.target.files;
+//                var done = function (url) {
+//                  uploadImg.value = '';
+//                  $('#sourceImg').attr('src', url);
+//                  $modal.open();
+//                };
+//                var reader;
+//                var file;
+//                var url;
+//                if (files && files.length > 0) {
+//                  file = files[0];
+//                  if (URL) {
+//                    done(URL.createObjectURL(file));
+//                  } else if (FileReader) {
+//                    reader = new FileReader();
+//                    reader.onload = function (e) {
+//                      done(reader.result);
+//                    };
+//                    reader.readAsDataURL(file);
+//                  }
+//                }
+//            });
+//
+//            // $modal.on('shown.bs.modal', function () {
+//            //   cropper = new Cropper(sourceImg, {
+//            //       aspectRatio: 16 / 9,
+//            //       preview: '.img-preview',
+//            //       viewMode: 1,
+//            //   });
+//            // }).on('hidden.bs.modal', function () {
+//            //   cropper.destroy();
+//            //   cropper = null;
+//            // });
+//
+//            $('#crop').click( function () {
+//              $modal.modal('hide');
+//              if (cropper) {
+//                canvas = cropper.getCroppedCanvas({
+//                  width: 320,
+//                  height: 180,
+//                });
+//                $('#photo').attr('src', canvas.toDataURL() ); // change cropped image
+//              }
+//            });
+//
+//            $('#save').click(function(){
+//                canvas.toBlob(function (blob) {
+//                    var formData = new FormData(document.querySelector('form'));
+//                    formData.append('photo', blob);
+//                    formData.append('contents', quill.container.firstChild.innerHTML);
+//                    $.ajax('/admin/posts/add', {
+//                      method: 'POST',
+//                      data: formData,
+//                      processData: false,
+//                      contentType: false,
+//                      success: function (rtn) {
+//                          console.log(rtn);
+//                      },
+//                      error: function (err) {
+//                          console.log(err);
+//                      },
+//                      complete: function () {
+//                          console.log('complate');
+//                      },
+//                    });
+//                });
+//            });
+//        });
 </script>
-<script type="text/javascript">
 
-/*
-    $(document).on('opened', '.remodal', function () {
-      console.log('opened');
-    });
-
-    $(document).on('closing', '.remodal', function (e) {
-      console.log('closing' + (e.reason ? ', reason: ' + e.reason : ''));
-    });
-
-    $(document).on('closed', '.remodal', function (e) {
-      console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
-    });
-
-    $(document).on('confirmation', '.remodal', function () {
-      console.log('confirmation');
-    });
-
-    $(document).on('cancellation', '.remodal', function () {
-      console.log('cancellation');
-    });
-*/
-</script>
 
 </html>
