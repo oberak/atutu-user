@@ -3,7 +3,9 @@
 
 <head>
   <% include ../partial/head.ejs %>
-  <link  href="/stylesheets/cropper.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
+  <!-- <link  href="/css/cropper.css" rel="stylesheet">
+  <link  href="/stylesheets/cropper.css" rel="stylesheet"> -->
   <link  href="/stylesheets/remodal-default-theme.css" rel="stylesheet">
   <link  href="/stylesheets/remodal.css" rel="stylesheet">
 
@@ -46,25 +48,19 @@
         <div class="container no-top-padding">
           <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li class="active">Checkout</li>
+            <li><a href="shop.html">Campaign</a></li>
+            <li class="active">Create campaign</li>
           </ol>
           <header class="page-header">
             <h1>Create Campaign</h1>
           </header>
           <form class="checkout-form form-horizontal" name="frm" enctype="multipart/form-data">
             <h2>Campaign details</h2>
-            <div class="form-group">
-              <label class="col col-lg-2 col-md-2 control-label" for="camp-name">Campaign Name <span class="required">*</span></label>
-              <div class="col col-lg-10 col-md-10">
-                <input type="text" name="camp-name" id="camp-name" class="form-control" placeholder="Heart Of Help" required>
-              </div>
-            </div>
+
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="categories">Categories <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
                 <select id="categories" name="categories" class="form-control selectpicker" multiple>
-                  <option value="">Select a country…</option>
                   <option value="AL">Albania</option>
                   <option value="DZ">Algeria</option>
                   <option value="AL">Albania</option>
@@ -74,6 +70,29 @@
                 </select>
               </div>
             </div>
+
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="camp-name">Campaign Name <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
+                <input type="text" name="camp-name" id="camp-name" class="form-control" placeholder="Heart Of Help" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="brief">Brief <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
+                <input type="text" name="brief" id="brief" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="story">Story <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
+                <div id="editor">
+
+                </div>
+              </div>
+            </div>
+
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label " for="image">Image <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
@@ -83,74 +102,63 @@
                     </label>
               </div>
             </div>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="brief">Brief <span class="required">*</span></label>
-                <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="brief" id="brief" class="form-control">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="story">Story <span class="required">*</span></label>
-                <div class="col col-lg-10 col-md-10">
-                  <textarea class="form-control" name="story" id="story" rows="10"></textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
-                <div class="col col-lg-3 col-md-10">
-                  <select id="region" name="region" class="form-control selectpicker">
-                    <option value="">Select a Region</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                  </select>
-                </div>
-                <div class="col col-lg-3 col-md-10">
-                  <select id="city" name="city" class="form-control selectpicker">
-                    <option value="">Select a City</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                  </select>
-                </div>
-                <div class="col col-lg-4 col-md-10">
-                    <input type="text" name="address" id="address" class="form-control" placeholder="No.7,Aung Thu Kha street" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="postcode">Goal <span class="required">*</span></label>
-                <div class="col col-lg-4 col-md-10">
-                  <input type="number" name="goal" id="goal" class="form-control" placeholder="Amount" min="1" required>
-                </div>
-                <div class="col col-lg-3 col-md-10">
-                  <input type="text" name="th" id="th" class="form-control" value="0,000" readonly>
-                </div>
-                <div class="col col-lg-3 col-md-10"  >
-                  <p style="background-color:gray;font-size:25px; color:black; text-align:center;">Kyats</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="end-date">End date <span class="required">*</span></label>
-                <div class="col col-lg-10 col-md-10">
-                  <input type="date" name="end-date" id="end-date" class="form-control" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col col-lg-2 col-md-2 control-label" for="tags">Tags</label>
-                <div class="col col-lg-10 col-md-10">
-                  <input type="text" name="tags" id="tags" class="form-control" placeholder="#Education, #Children" >
-                </div>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-lg btn-primary">Save</button>
 
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
+              <div class="col col-lg-3 col-md-10">
+                <select id="region" name="region" class="form-control selectpicker">
+                  <option value="">Select a Region</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                </select>
               </div>
+              <div class="col col-lg-3 col-md-10">
+                <select id="city" name="city" class="form-control selectpicker">
+                  <option value="">Select a City</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                </select>
+              </div>
+              <div class="col col-lg-4 col-md-10">
+                  <input type="text" name="address" id="address" class="form-control" placeholder="No.7,Aung Thu Kha street" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="postcode">Goal <span class="required">*</span></label>
+              <div class="col col-lg-4 col-md-10">
+                <input type="number" name="goal" id="goal" class="form-control" placeholder="Amount" min="1" required>
+              </div>
+              <div class="col col-lg-3 col-md-10">
+                <input type="text" name="th" id="th" class="form-control" value="0,000" readonly>
+              </div>
+              <div class="col col-lg-3 col-md-10"  >
+                <p style="background-color:gray;font-size:25px; color:black; text-align:center;">Kyats</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="end-date">End date <span class="required">*</span></label>
+              <div class="col col-lg-10 col-md-10">
+                <input type="date" name="end-date" id="end-date" class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col col-lg-2 col-md-2 control-label" for="tags">Tags</label>
+              <div class="col col-lg-10 col-md-10">
+                <input type="text" name="tags" id="tags" class="form-control" placeholder="#Education, #Children" >
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-lg btn-primary">Save</button>
+
+            </div>
           </form>
         </div>
         <div class="remodal"  data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
@@ -183,28 +191,34 @@
 <script src="/scripts/plugins.js"></script>
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.js" charset="utf-8"></script>
+<!-- <script src="/js/jquery.js" charset="utf-8"></script> -->
 <!-- Main js -->
 <script src="/scripts/main.js"></script>
 <script src="/javascripts/remodal.js" charset="utf-8"></script>
-<script src="/javascripts/jquery.js" charset="utf-8"></script>
+<!-- <script src="/javascripts/jquery.js" charset="utf-8"></script> -->
 <!-- <script src="/javascripts/modals.js" charset="utf-8"></script> -->
-<script src="/javascripts/cropper.js" charset="utf-8"></script>
-<script src="/javascripts/jquery-cropper.js" charset="utf-8"></script>
+<!-- <script src="/javascripts/cropper.js" charset="utf-8"></script>
+<script src="/javascripts/jquery-cropper.js" charset="utf-8"></script> -->
 
 <script type="text/javascript">
 
-window.REMODAL_GLOBALS = {
-  NAMESPACE: 'remodal',
-  DEFAULTS: {
-    hashTracking: true,
-    closeOnConfirm: true,
-    closeOnCancel: true,
-    closeOnEscape: true,
-    closeOnOutsideClick: true,
-    modifier: ''
-  }
-};
+var quill = new Quill('#editor', {
+  modules: { toolbar: true },
+  theme: 'snow'
+});
+
+  window.REMODAL_GLOBALS = {
+    NAMESPACE: 'remodal',
+    DEFAULTS: {
+      hashTracking: true,
+      closeOnConfirm: true,
+      closeOnCancel: true,
+      closeOnEscape: true,
+      closeOnOutsideClick: true,
+      modifier: ''
+    }
+  };
 
   jQuery.noConflict();
     $(function () {

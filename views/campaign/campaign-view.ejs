@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <% include ../partial/head.ejs %>
+</head>
+<style media="screen">
+#like{
+    background-color: #090df4;
+    border: none;
+    color: white;
+    padding: 8px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#fav{
+    background-color: #cc1010;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#facebook{
+  background-color: #3f41a3;
+  border: none;
+  color: white;
+  padding: 8px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+a:hover {
+  text-decoration: underline;
+}
+b{
+  font-size: 2rem;
+}
+</style>
+<body >
+
+    <div id="wrapper" class="wrapper">
+
+        <!-- BEGIN HEADER -->
+        <% include ../partial/header.ejs %>
+        <!-- END HEADER -->
+
+        <!-- BEGIN SEARCH -->
+        <div class="site-search">
+            <div class="site-search-inner">
+                <div class="container">
+                    <form class="site-search-form">
+                        <h2>Looking for something?</h2>
+                        <div class="input-group">
+                            <input class="form-control" type="search" required>
+                            <span class="input-group-btn">
+                                 <button type="submit" class="btn btn-primary">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button type="button" class="site-search-close-btn">×</button>
+        </div>
+        <!-- END SEARCH -->
+
+        <!-- BEGIN MAIN CONTENT -->
+        <main class="site-content">
+
+<div class="container no-top-padding">
+	<ol class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		<li class="active">Causes</li>
+	</ol>
+	<div class="post">
+		<header class="post-header">
+			<h1>Campaign Detail View</h1>
+			<div class="post-meta">
+				<div class="post-meta-item">
+					<i class="fa fa-folder-o"></i> Education
+				</div>
+			</div>
+		</header>
+		<div class="row">
+			<div class="col col-lg-9 col-md-9">
+				<header class="secondary-post-header">
+					<div class="post-thumb">
+						<img src="/images/news-photo-1.jpg" width="1000" height="550" alt="">
+					</div>
+					<div class="post-header-inner">
+						<div class="cause-progress">
+							<div class="cause-progress-val">
+								<div class="cause-progress-raised">Raised <span>$9,800</span></div>
+								<div class="cause-progress-goal">Goal <span>$20,000</span></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar active" role="progressbar" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100">
+									<span data-toggle="progress-tooltip" data-placement="top" title="49%"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+        <div>
+          <h3>Brief</h3>
+          <p>Lorem ipsum dolor sit amet, Ut enim ad minim veniam, nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <hr>
+        <div>
+          <h3>Story</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#donorlist" aria-controls="donorlist" role="tab" data-toggle="tab">Donor List</a>
+					</li>
+					<li role="presentation">
+						<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="donorlist">
+            <ul type="none">
+              <li>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+        					<div class="catalog-item">
+        						<header class="catalog-item-header">
+        							<div class="catalog-item-thumb">
+        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
+        							</div>
+        						</header>
+        						<div class="catalog-item-inner">
+        							<div class="row">
+        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
+        									<h3><a href="product.html">Kris</a></h3>
+        									<div class="rating star-icon color-ok value-5">
+        									</div>
+        								</div>
+        							</div>
+        							</div>
+        					</div>
+        				</div>
+              </li>
+              <li>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+        					<div class="catalog-item">
+        						<header class="catalog-item-header">
+        							<div class="catalog-item-thumb">
+        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
+        							</div>
+        						</header>
+        						<div class="catalog-item-inner">
+        							<div class="row">
+        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
+        									<h3><a href="product.html">Wu Yi Fen</a></h3>
+        									<div class="rating star-icon color-ok value-5">
+        									</div>
+        								</div>
+        							</div>
+        							</div>
+        					</div>
+        				</div>
+              </li>
+              <li>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+        					<div class="catalog-item">
+        						<header class="catalog-item-header">
+        							<div class="catalog-item-thumb">
+        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
+        							</div>
+        						</header>
+        						<div class="catalog-item-inner">
+        							<div class="row">
+        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
+        									<h3><a href="product.html">Glaxy</a></h3>
+        									<div class="rating star-icon color-ok value-5">
+        									</div>
+        								</div>
+        							</div>
+        							</div>
+        					</div>
+        				</div>
+              </li>
+            </ul>
+
+            <ul type="none">
+              <li>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+        					<div class="catalog-item">
+        						<header class="catalog-item-header">
+        							<div class="catalog-item-thumb">
+        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
+        							</div>
+        						</header>
+        						<div class="catalog-item-inner">
+        							<div class="row">
+        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
+        									<h3><a href="product.html">Fen Fen</a></h3>
+        									<div class="rating star-icon color-ok value-5">
+        									</div>
+        								</div>
+        							</div>
+        							</div>
+        					</div>
+        				</div>
+              </li>
+              <li>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+        					<div class="catalog-item">
+        						<header class="catalog-item-header">
+        							<div class="catalog-item-thumb">
+        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
+        							</div>
+        						</header>
+        						<div class="catalog-item-inner">
+        							<div class="row">
+        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
+        									<h3><a href="product.html">John Smith</a></h3>
+        									<div class="rating star-icon color-ok value-5">
+        									</div>
+        								</div>
+        							</div>
+        							</div>
+        					</div>
+        				</div>
+              </li>
+              <li>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+        					<div class="catalog-item">
+        						<header class="catalog-item-header">
+        							<div class="catalog-item-thumb">
+        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
+        							</div>
+        						</header>
+        						<div class="catalog-item-inner">
+        							<div class="row">
+        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
+        									<h3><a href="product.html">Blue Icon</a></h3>
+        									<div class="rating star-icon color-ok value-5">
+        									</div>
+        								</div>
+        							</div>
+        							</div>
+        					</div>
+        				</div>
+              </li>
+            </ul>
+
+            <nav aria-label="Page navigation" class="text-center">
+      				<ul class="pagination">
+      					<li>
+      						<a href="#" aria-label="Previous">
+      							<i class="fa fa-caret-left" aria-hidden="true"></i>
+      						</a>
+      					</li>
+      					<li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+      					<li><a href="#">2</a></li>
+      					<li><a href="#">3</a></li>
+      					<li><a href="#">4</a></li>
+      					<li><a href="#">5</a></li>
+      					<li>
+      						<a href="#" aria-label="Next">
+      							<i class="fa fa-caret-right" aria-hidden="true"></i>
+      						</a>
+      					</li>
+      				</ul>
+      			</nav>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="comments">
+<ol class="comments-list">
+	<li class="comment">
+		<div class="comment-body">
+			<header class="comment-meta">
+				<div class="comment-author vcard">
+					<img class="avatar photo" src="/images/avatar-2.jpg" alt="">
+					<span class="fn">Antonio</span>
+					<span class="says"> says:</span>
+				</div>
+				<div class="comment-metadata">
+					<a href="">August 12, 2013 at 5:02 pm</a>
+				</div>
+			</header>
+			<div class="comment-content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga provident, accusantium qui non ipsa aperiam.</p>
+			</div>
+			<div class="reply">
+				<a class="comment-reply-link btn-inline" href=""><span>Reply</span></a>
+			</div>
+		</div>
+		<ol class="children">
+			<li class="comment bypostauthor">
+				<div class="comment-body">
+					<header class="comment-meta">
+						<div class="comment-author vcard">
+							<img class="avatar photo" src="/images/avatar-1.jpg" alt="">
+							<span class="fn">Lily</span>
+							<span class="says"> says:</span>
+						</div>
+						<div class="comment-metadata">
+							<a href="">August 12, 2013 at 5:02 pm</a>
+						</div>
+					</header>
+					<div class="comment-content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae voluptate, magni velit alias ducimus ea veritatis sapiente explicabo consequatur dolor!</p>
+					</div>
+					<div class="reply">
+						<a class="comment-reply-link btn-inline" href=""><span>Reply</span></a>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</li>
+	<li class="comment">
+		<div class="comment-body">
+			<header class="comment-meta">
+				<div class="comment-author vcard">
+					<img class="avatar photo" src="/images/avatar-2.jpg" alt="">
+					<span class="fn">Antonio</span>
+					<span class="says"> says:</span>
+				</div>
+				<div class="comment-metadata">
+					<a href="">August 12, 2013 at 5:02 pm</a>
+				</div>
+			</header>
+			<div class="comment-content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati soluta sint cumque iure dolorum atque facilis fugit id error, officiis aut, perferendis alias accusamus repellat, voluptas magni facere excepturi quas!</p>
+			</div>
+			<div class="reply">
+				<a class="comment-reply-link btn-inline" href=""><span>Reply</span></a>
+			</div>
+		</div>
+		<ol class="children">
+			<li class="comment bypostauthor">
+				<div class="comment-body">
+					<header class="comment-meta">
+						<div class="comment-author vcard">
+							<img class="avatar photo" src="/images/avatar-1.jpg" alt="">
+							<span class="fn">Lily</span>
+							<span class="says"> says:</span>
+						</div>
+						<div class="comment-metadata">
+							<a href="">August 12, 2013 at 5:02 pm</a>
+						</div>
+					</header>
+					<div class="comment-content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime eaque sunt fugit eveniet, sit culpa in nobis. Laborum, qui, voluptatem!</p>
+					</div>
+					<div class="reply">
+						<a class="comment-reply-link btn-inline" href=""><span>Reply</span></a>
+					</div>
+				</div>
+				<ol class="children">
+					<li class="comment">
+						<div class="comment-body">
+							<header class="comment-meta">
+								<div class="comment-author vcard">
+									<img class="avatar photo" src="/images/avatar-3.jpg" alt="">
+									<span class="fn">Antonio</span>
+									<span class="says"> says:</span>
+								</div>
+								<div class="comment-metadata">
+									<a href="">August 12, 2013 at 5:02 pm</a>
+								</div>
+							</header>
+							<div class="comment-content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, modi consectetur fuga amet. Reiciendis, accusantium?</p>
+							</div>
+							<div class="reply">
+								<a class="comment-reply-link btn-inline" href=""><span>Reply</span></a>
+							</div>
+						</div>
+						<ol class="children">
+							<li class="comment bypostauthor">
+								<div class="comment-body">
+									<header class="comment-meta">
+										<div class="comment-author vcard">
+											<img class="avatar photo" src="/images/avatar-1.jpg" alt="">
+											<span class="fn">Lily</span><span class="says"> says:</span>
+										</div>
+										<div class="comment-metadata">
+											<a href="">August 12, 2013 at 5:02 pm</a>
+										</div>
+									</header>
+									<div class="comment-content">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptates, et sunt dolor commodi necessitatibus debitis a. Neque suscipit molestiae ullam, harum at tempora autem?</p>
+									</div>
+									<div class="reply">
+										<a class="comment-reply-link btn-inline" href=""><span>Reply</span></a>
+									</div>
+								</div>
+							</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</li>
+</ol>
+<hr>
+<h3>Leave a Comment</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio fugit sequi, perferendis quisquam totam natus repellendus ipsum dignissimos possimus, praesentium molestiae corporis iure sed sapiente, ab eveniet ratione, nemo provident officia minima modi eligendi adipisci. Et repellat suscipit quisquam ullam nostrum sint voluptate, nobis eligendi explicabo nesciunt ipsa dignissimos, eaque!</p>
+<div class="comment-respond">
+	<form>
+		<div class="row">
+			<div class="col col-lg-6">
+				<div class="form-group">
+					<label>Name:</label>
+					<input type="text" class="form-control" name="name" required>
+				</div>
+			</div>
+			<div class="col col-lg-6">
+				<div class="form-group">
+					<label>E-mail:</label>
+					<input type="email" class="form-control" name="email" required>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Comment:</label>
+			<textarea class="form-control" cols="90" rows="8" name="message" required></textarea>
+		</div>
+		<input type="submit" class="btn btn-lg btn-primary" value="Submit a comment">
+	</form>
+</div>
+
+					</div>
+				</div>
+
+        <input type="button" id="like" name="like" value="Like"> &nbsp&nbsp&nbsp
+        <input type="button" id="fav" name="fav" value="Favorite"> &nbsp&nbsp&nbsp
+        <input type="button" name="facebook" id="facebook" value="Share on Facebook">
+
+				<footer class="entry-footer">
+					<div class="row">
+						<div class="col col-lg-6">
+					</div>
+				</footer>
+			</div>
+			<div class="col col-lg-3 col-md-3">
+				<div class="post-details">
+          <div class="widget">
+              <form class="search-form">
+                  <div class="form-group">
+                      <input class="form-control" type="search" required placeholder="Search...">
+                      <button><i class="fa fa-search"></i></button>
+                  </div>
+              </form>
+          </div>
+
+          <div id="cat">
+            <select style="width:255px; height:45px;">
+              <option value="0">Select Categories:</option>
+              <option value="1">Audi</option>
+              <option value="2">BMW</option>
+              <option value="3">Citroen</option>
+              <option value="4">Ford</option>
+              <option value="5">Honda</option>
+            </select>
+          </div>
+
+					<p></p>
+
+					<h3>Creator</h3>
+					<div class="post-author">
+						<div class="post-author-photo">
+							<a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+						</div>
+						<a href=""><b>John Smith</b></a><br> 10 campaigns
+					</div>
+          <input type="number" name="amount" id="amount" class="form-control" placeholder="2,500 Kyats" min="2500" required><p></p>
+					<a href="donate.html" style="width:255px; height:45px; border-radius: 4px;" class="btn btn-primary btn-block">Donate now</a>
+          <p></p>
+          <center><b><a href="#" id="list">Go to Campaign list</a></b></center>
+					<hr>
+					<h3>Tags</h3>
+					<div class="tags">
+						<a href="causes.html">Education</a>
+						<a href="causes.html">Orphans</a>
+					</div>
+					<!-- <h3>Share</h3>
+					<ul class="social-nav">
+						<li><a href="" class="fa fa-facebook"></a></li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<header class="heading">
+		<h2>Similar causes</h2>
+	</header>
+<div class="owl-carousel posts" data-slideshow-settings='{"responsive":{"0":{"items":1}, "767":{"items":2}, "992":{"items":2}, "1200":{"items":3}}, "margin":15, "dots":false}'>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Health</a></div>
+			<div class="post-thumb">
+				<img src="/images/cause-photo-1.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Children’s health fund</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$11,300</span></div>
+						<div class="cause-progress-goal">Goal <span>$15,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Quibusdam quae ipsam at mollitia dolorem quam ipsa vero. Similique, illum. Veritatis cumque et est nam alias quisquam officiis.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Animals</a></div>
+			<div class="post-thumb">
+				<img src="/images/cause-photo-2.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Establishment of educational infrastructure</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$9,800</span></div>
+						<div class="cause-progress-goal">Goal <span>$20,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Sed provident, asperiores, adipisci minus officia mollitia itaque. Voluptate temporibus, quidem praesentium, unde magni itaque error suscipit.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Health</a></div>
+			<div class="post-thumb">
+				<img src="/images/cause-photo-3.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Help Tommy to start a new life</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$4,700</span></div>
+						<div class="cause-progress-goal">Goal <span>$8,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Minus cum adipisci assumenda cupiditate voluptatem vel nihil sed perferendis, natus rem! Ea neque cumque cupiditate libero doloremque!</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Education</a></div>
+			<div class="post-thumb">
+				<img src="/images/cause-photo-4.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Preventing the extinction of rare species of animals</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$11,300</span></div>
+						<div class="cause-progress-goal">Goal <span>$42,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Pariatur nulla quo repudiandae eum porro minus iusto, non? Officiis nihil, quae temporibus dolorum veniam cupiditate laudantium.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Health</a></div>
+			<div class="post-thumb">
+				<img src="/images/cause-photo-5.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Lily needs your help</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$3,900</span></div>
+						<div class="cause-progress-goal">Goal <span>$5,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Sed provident, asperiores, adipisci minus officia mollitia itaque. Voluptate temporibus, quidem praesentium, unde magni itaque error suscipit.</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+	<div class="post post-card">
+		<header class="post-header">
+			<div class="post-category"><a href="">Food</a></div>
+			<div class="post-thumb">
+				<img src="/images/cause-photo-6.jpg" width="800" height="600"  alt="">
+			</div>
+			<div class="post-header-inner">
+				<h3><a href="cause.html">Provide humanitarian assistance to people</a></h3>
+				<div class="cause-progress">
+					<div class="cause-progress-val">
+						<div class="cause-progress-raised">Raised <span>$28,100</span></div>
+						<div class="cause-progress-goal">Goal <span>$32,000</span></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="post-entry">
+			<p>Minus cum adipisci assumenda cupiditate voluptatem vel nihil sed perferendis, natus rem! Ea neque cumque cupiditate libero doloremque!</p>
+			<div class="text-center">
+				<a href="cause.html" class="btn btn-default">Donate</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+        </main>
+        <!-- END MAIN CONTENT -->
+        <!-- BEGIN FOOTER -->
+        <% include ../partial/footer.ejs %>
+        <!-- END FOOTER -->
+    </div>
+    <!-- Gmaps API -->
+    <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
+    <!-- <script src="scripts/map-objects-data.js"></script> -->
+    <!-- Plugins js -->
+    <!-- <script src="scripts/plugins.js"></script> -->
+    <!-- Main js -->
+    <!-- <script src="scripts/main.js"></script> -->
+</body>
+</html>
