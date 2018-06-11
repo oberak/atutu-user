@@ -8,15 +8,15 @@ var upload = multer({
 var auth = function(req, res, next) {
   if (req.session.user){
     return next();
-  } else 
+  } else
      res.redirect('/signup');
 };
 router.get('/add', auth, function (err,res,next) {
     res.render('campaign/campaign-add');
-
 });
-router.get('/view', function(req, res, next) {
-  res.render('campaign/campaign-view');
+
+router.get('/detail', function (err,res,next) {
+    res.render('campaign/campaign-detail');
 });
 
 router.get('/list', function(req, res, next) {
@@ -28,23 +28,33 @@ router.post('/add', upload.single('uploadImg'), function(req, res, next) {
   campaign.title = req.body.campName;
   if (req.file) campaign.imgUrl = '/images/uploads/' + req.file.filename;
   campaign.brief = req.body.brief;
-  campaign.story = req.body.contents;
+  campaign.story.text = req.body.text;
+  campaign.story.html = req.body.contents;
   campaign.address.region = req.body.region;
   campaign.address.city = req.body.city;
   campaign.address.other = req.body.address;
   campaign.goal = req.body.goal;
   campaign.dueDate = req.body.endDate;
   campaign.tags = req.body.tags;
-  campaign.creator = req.session.user._id;
+  campaign.status = "00";
+  campaign.insertedBy = req.session.user.id;
   campaign.updatedBy = req.session.user._id;
   campaign.save(function(err, rtn) {
     if (err) throw err;
-
-    console.log(rtn);
+    res.json({
+      status: true,
+      msg: 'success',
+      id: rtn._id
+    });
   });
-  res.json({
-    status: true,
-    msg: 'success'
+
+});
+router.get('/view/:id', function (req,res,next) {
+  Campaign.findById({_id:req.params.id},function (err,rtn) {
+    if(err) throw err;
+    console.log(rtn);
+    if(rtn)
+    res.render('campaign/campaign-confirm',{camp:rtn});
   });
 });
 module.exports = router;

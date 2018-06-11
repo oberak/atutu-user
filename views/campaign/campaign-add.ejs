@@ -243,13 +243,14 @@
   save.onclick = function() {
     var formData = new FormData(document.querySelector('#frm'));
     formData.append('contents', quill.container.firstChild.innerHTML);
+    formData.append('text', quill.getText());
     $.ajax('/campaign/add', {
       method: 'POST',
       data: formData,
       processData: false,
       contentType: false,
       success: function(rtn) {
-        console.log(rtn);
+        location.href= "/campaign/view/"+rtn.id;
       },
       error: function(err) {
         console.log(err);

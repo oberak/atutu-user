@@ -35,7 +35,7 @@ router.post('/signin', function(req, res, next) {
       req.flash('warn', 'Email not exists or password not matched!!');
       res.redirect('/signup');
     }else {
-      req.session.user = { name: user.name, email: user.email };
+      req.session.user = { name: user.name, email: user.emailIn, id: user._id };
         res.redirect((req.body.forward)? req.body.forward : '/');
       }
       // res.redirect();
