@@ -38,9 +38,14 @@ db.on('error',console.error.bind(console,'MongoDB connection error:'));
           saveUninitialized : true
 }));
 app.use(flash()); // after cookie, session
+app.use(function (req, res, next) {
+  res.locals.user = req.session.user;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 app.use('/campaign',campaign);
 
 // catch 404 and forward to error handler
