@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var flash = require('express-flash');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -36,11 +37,8 @@ db.on('error',console.error.bind(console,'MongoDB connection error:'));
           resave: false,
           saveUninitialized : true
 }));
+app.use(flash()); // after cookie, session
 
-app.use(function (req, res, next) {
-  res.locals.user = req.session.user;
-  next();
-});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/campaign',campaign);

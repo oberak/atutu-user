@@ -31,11 +31,14 @@ router.post('/signin', function(req, res, next) {
     if(err) throw err;
     console.log('call it',user);
     if(user == null || !User.compare(req.body.passwordIn, user.password)){
+      req.flash('warn', 'Email not exists or password not matched!!');
       res.redirect('/signup');
     }else {
-      req.session.user = { name: user.name, email: user.email, role:user.role };
-      res.redirect('/');
-    }
+      req.session.user = { name: user.name, email: user.email };
+        res.redirect((req.body.forward)? req.body.forward : '/');
+      }
+      // res.redirect();
+
   });
 
 });

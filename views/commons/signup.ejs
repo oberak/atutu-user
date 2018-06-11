@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/demo.css">
   <link rel="stylesheet" href="/stylesheets/normalize.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="/stylesheets/set2.css">
-  <script src="/javascripts/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
   <script src="/javascripts/jquery.validate.js" charset="utf-8"></script>
   <script src="/javascripts/classie.js" charset="utf-8"></script>
   <script src="/javascripts/jquery.cookie.js"></script>
@@ -24,6 +25,11 @@
   <form name="frmIn" action="/signin" method="post">
   <div class="form sign-in">
     <h2>Welcome back,</h2>
+    <% if(locals.messages.warn){%>
+    <div class="alert alert-warning alert-dismissible" role="alert" style="width:70%;">
+        <strong>Warning!</strong><br><%=messages.warn%>
+    </div>
+    <%}%>
     <span class="input input--fumi">
       <input class="input__field input__field--fumi" type="text" name="emailIn" id="emailIn" required/>
       <label class="input__label input__label--fumi" for="emailIn">
@@ -201,6 +207,7 @@
             document.querySelector('.img__btn').addEventListener('click', function() {
             document.querySelector('.cont').classList.toggle('s--signup');
       });
+
   </script>
 
 </div>

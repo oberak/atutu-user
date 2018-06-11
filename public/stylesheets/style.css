@@ -307,3 +307,36 @@ p{
 .bg-gray{
   background-color: gray;
 }
+.alert {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  color: #fff !important; }
+  .alert .alert-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold; }
+
+.alert-success {
+  background-color: #2b982b; }
+
+.alert-info {
+  background-color: #00b0e4; }
+
+.alert-warning {
+  background-color: #ff9600 !important; }
+
+.alert-danger {
+  background-color: #fb483a !important; }
+
+.alert-dismissible .close {
+  color: #fff;
+  opacity: 1;
+  border: none;
+  text-shadow: none; }
