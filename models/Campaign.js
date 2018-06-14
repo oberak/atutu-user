@@ -119,10 +119,10 @@ var CampaignSchema = new Schema({
 });
 
 CampaignSchema.virtual('updatedDt').get(function() {
-   return dateformat(this.updated, 'dd/mm/yyyy HH:MM');
+   return dateformat(this.updated, 'dd-mm-yyyy');
 });
 
 CampaignSchema.virtual('insertedDt').get(function() {
-   return dateformat(this.inserted, 'dd/mm/yyyy HH:MM');
+   return dateformat(this.inserted, 'dd-mm-yyyy');
 });
 module.exports = mongoose.model('Campaigns', CampaignSchema); // Campaigns: collection
