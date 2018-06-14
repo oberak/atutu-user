@@ -70,214 +70,61 @@
 <div class="widget">
     <h3>Popular Tags</h3>
     <div class="tags">
-        <a href="causes.html">Children</a>
-        <a href="causes.html">Care</a>
-        <a href="causes.html">Education</a>
-        <a href="causes.html">Health</a>
-        <a href="causes.html">Sport</a>
-        <a href="causes.html">Food</a>
-        <a href="causes.html">Water</a>
-        <a href="causes.html">World</a>
-        <a href="causes.html">Nature</a>
+        <a href="#">Children</a>
+        <a href="#">Care</a>
+        <a href="#">Education</a>
+        <a href="#">Health</a>
+        <a href="#">Sport</a>
+        <a href="#">Food</a>
+        <a href="#">Water</a>
+        <a href="#">World</a>
+        <a href="#">Nature</a>
     </div>
 </div>
-
-<!-- <div class="widget">
-    <h3>Archives</h3>
-    <ul class="widget-list">
-        <li><a href="causes.html">January 2017</a></li>
-        <li><a href="causes.html">December 2016</a></li>
-        <li><a href="causes.html">November 2016</a></li>
-        <li><a href="causes.html">October 2016</a></li>
-        <li><a href="causes.html">September 2016</a></li>
-    </ul>
-</div> -->
-
-
 		</div>
 		<div class="col-lg-9 col-md-9">
 
-			<div class="row grid posts">
+		<div class="row grid posts">
+      <% for(var i = 0; i< result.length; i++){%>
 				<div class="col-lg-6 col-md-6">
 					<div class="post post-card">
 						<header class="post-header">
 							<div class="post-category"><a href="">Health</a></div>
 							<div class="post-thumb">
-								<img src="/images/cause-photo-1.jpg" width="800" height="600"  alt="">
+								<img src="<%=result[i].imgUrl%>" width="800" height="600"  alt="">
 							</div>
 							<div class="post-header-inner">
-								<h3><a href="cause.html">Children’s health fund</a></h3>
+								<h3><a href="/campaign/detail/<%= result[i]._id %>"><%= result[i].title%></a></h3>
 								<div class="cause-progress">
 									<div class="cause-progress-val">
-										<div class="cause-progress-raised">Raised <span>$11,300</span></div>
-										<div class="cause-progress-goal">Goal <span>$15,000</span></div>
+										<div class="cause-progress-raised">Raised <span> <%= result[i].raised.credit.amount%> Kyats</span></div>
+										<div class="cause-progress-goal">Goal <span><%= result[i].goal %>,000 Kyats</span></div>
 									</div>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" id="real<%=i%>" role="progressbar" style="width: 5%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar-info" id="virtual<%=i%>" role="progressbar" style="width: 5%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
 								</div>
 							</div>
 						</header>
 						<div class="post-entry">
-							<p>Quibusdam quae ipsam at mollitia dolorem quam ipsa vero. Similique, illum. Veritatis cumque et est nam alias quisquam officiis quam, dolores delectus.</p>
+							<p><%= result[i].brief %></p>
 							<div class="text-center">
 								<a href="cause.html" class="btn btn-default">Donate</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="post post-card">
-						<header class="post-header">
-							<div class="post-category"><a href="">Animals</a></div>
-							<div class="post-thumb">
-								<img src="/images/cause-photo-2.jpg" width="800" height="600"  alt="">
-							</div>
-							<div class="post-header-inner">
-								<h3><a href="cause.html">Establishment of educational infrastructure</a></h3>
-								<div class="cause-progress">
-									<div class="cause-progress-val">
-										<div class="cause-progress-raised">Raised <span>$9,800</span></div>
-										<div class="cause-progress-goal">Goal <span>$20,000</span></div>
-									</div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-								</div>
-							</div>
-						</header>
-						<div class="post-entry">
-							<p>Sed provident, asperiores, adipisci minus officia mollitia itaque. Voluptate temporibus, quidem praesentium, unde magni itaque error suscipit.</p>
-							<div class="text-center">
-								<a href="cause.html" class="btn btn-default">Donate</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="post post-card">
-						<header class="post-header">
-							<div class="post-category"><a href="">Health</a></div>
-							<div class="post-thumb">
-								<img src="/images/cause-photo-3.jpg" width="800" height="600"  alt="">
-							</div>
-							<div class="post-header-inner">
-								<h3><a href="cause.html">Help Tommy to start a new life</a></h3>
-								<div class="cause-progress">
-									<div class="cause-progress-val">
-										<div class="cause-progress-raised">Raised <span>$4,700</span></div>
-										<div class="cause-progress-goal">Goal <span>$8,000</span></div>
-									</div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-								</div>
-							</div>
-						</header>
-						<div class="post-entry">
-							<p>Minus cum adipisci assumenda cupiditate voluptatem vel nihil sed perferendis, natus rem! Ea neque cumque cupiditate libero doloremque!</p>
-							<div class="text-center">
-								<a href="cause.html" class="btn btn-default">Donate</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="post post-card">
-						<header class="post-header">
-							<div class="post-category"><a href="">Education</a></div>
-							<div class="post-thumb">
-								<img src="/images/cause-photo-4.jpg" width="800" height="600"  alt="">
-							</div>
-							<div class="post-header-inner">
-								<h3><a href="cause.html">Preventing the extinction of rare species of animals</a></h3>
-								<div class="cause-progress">
-									<div class="cause-progress-val">
-										<div class="cause-progress-raised">Raised <span>$11,300</span></div>
-										<div class="cause-progress-goal">Goal <span>$42,000</span></div>
-									</div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-								</div>
-							</div>
-						</header>
-						<div class="post-entry">
-							<p>Pariatur nulla quo repudiandae eum porro minus iusto, non? Officiis nihil, quae temporibus dolorum veniam cupiditate laudantium.</p>
-							<div class="text-center">
-								<a href="cause.html" class="btn btn-default">Donate</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="post post-card">
-						<header class="post-header">
-							<div class="post-category"><a href="">Health</a></div>
-							<div class="post-thumb">
-								<img src="/images/cause-photo-5.jpg" width="800" height="600"  alt="">
-							</div>
-							<div class="post-header-inner">
-								<h3><a href="cause.html">Lily needs your help</a></h3>
-								<div class="cause-progress">
-									<div class="cause-progress-val">
-										<div class="cause-progress-raised">Raised <span>$3,900</span></div>
-										<div class="cause-progress-goal">Goal <span>$5,000</span></div>
-									</div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-								</div>
-							</div>
-						</header>
-						<div class="post-entry">
-							<p>Sed provident, asperiores, adipisci minus officia mollitia itaque. Voluptate temporibus, quidem praesentium, unde magni itaque error suscipit.</p>
-							<div class="text-center">
-								<a href="cause.html" class="btn btn-default">Donate</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="post post-card">
-						<header class="post-header">
-							<div class="post-category"><a href="">Food</a></div>
-							<div class="post-thumb">
-								<img src="/images/cause-photo-6.jpg" width="800" height="600"  alt="">
-							</div>
-							<div class="post-header-inner">
-								<h3><a href="cause.html">Provide humanitarian assistance to people</a></h3>
-								<div class="cause-progress">
-									<div class="cause-progress-val">
-										<div class="cause-progress-raised">Raised <span>$28,100</span></div>
-										<div class="cause-progress-goal">Goal <span>$32,000</span></div>
-									</div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-								</div>
-							</div>
-						</header>
-						<div class="post-entry">
-							<p>Minus cum adipisci assumenda cupiditate voluptatem vel nihil sed perferendis, natus rem! Ea neque cumque cupiditate libero doloremque!</p>
-							<div class="text-center">
-								<a href="cause.html" class="btn btn-default">Donate</a>
-							</div>
-						</div>
-					</div>
-				</div>
+        <script type="text/javascript">
+          function progressFun(i) {
+            var real = Math.floor(((<%= result[i].raised.credit.amount%>)/(<%= result[i].goal %>))* 100);// 5000 is amount , 15000 is goal
+            document.getElementById('real'+i).style.width = String(real)+'%' ;
+            var virtual = Math.floor(((<%= result[i].raised.reserved.amount%>)/(<%= result[i].goal %>))* 100); //1000 is virtaul ,15000 is Goal
+            document.getElementById('virtual'+i).style.width = String(virtual)+'%' ;
+          }
+          progressFun(<%= i %>);
+        </script>
+      <%}%>
 			</div>
 
 			<nav aria-label="Page navigation" class="text-center">
@@ -373,4 +220,7 @@
     <script src="/scripts/main.js"></script>
 
 </body>
+<script type="text/javascript">
+
+</script>
 </html>

@@ -15,12 +15,22 @@ router.get('/add', auth, function (err,res,next) {
     res.render('campaign/campaign-add');
 });
 
-router.get('/detail', function (err,res,next) {
-    res.render('campaign/campaign-detail');
+router.get('/detail/:id', function (req,res,next) {
+  Campaign.findById({_id:req.params.id},function (err,rtn) {
+    if(err) throw err;
+    console.log(rtn);
+    if(rtn)
+    res.render('campaign/campaign-detail',{camp:rtn});
+  });
 });
 
 router.get('/list', function(req, res, next) {
-  res.render('campaign/campaign-list');
+  Campaign.find({},function (err,rtn) {
+    if (err) throw err;
+    res.render('campaign/campaign-list',{result: rtn});
+    console.log(rtn);
+  });
+
 });
 
 router.post('/add', upload.single('uploadImg'), function(req, res, next) {
