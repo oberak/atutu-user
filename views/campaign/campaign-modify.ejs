@@ -39,7 +39,7 @@
             <li class="active">Create campaign</li>
           </ol>
           <header class="page-header">
-            <h1>Create Campaign</h1>
+            <h1>Modify Campaign</h1>
           </header>
           <form class="checkout-form form-horizontal" id="frm" method="post" action="/campaign/add" name="frm" enctype="multipart/form-data">
             <h2>Campaign details</h2>
@@ -59,14 +59,14 @@
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="camp-name">Campaign Name <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
-                <input type="text" name="campName" id="campName" class="form-control" placeholder="Heart Of Help" required>
+                <input type="text" name="campName" id="campName" class="form-control" value="<%= camp.title %>" placeholder="Heart Of Help" required>
               </div>
             </div>
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label " for="image">Image <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
                 <label class="img-label" data-toggle="tooltip" title="Select photo">
-                        <img class="rounded" id="photo" src="/images/upload.png" alt="Image">
+                        <img src="<%=camp.imgUrl%>" alt="User photo" onerror="this.src='/images/user.png'">
                         <input type="file" class="sr-only" id="uploadImg" name="uploadImg" accept="images/*">
                     </label>
               </div>
@@ -74,21 +74,21 @@
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="brief">Brief <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
-                <input type="text" name="brief" id="brief" class="form-control">
+                <input type="text" name="brief" id="brief" class="form-control" value="<%= camp.brief %>">
               </div>
             </div>
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="story">Story <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
                 <div class="" id="editor">
-
+                  <%= camp.story.text %>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
               <div class="col col-lg-3 col-md-10">
-                <select id="region" name="region" class="form-control selectpicker">
+                <select id="region" name="region" value="<%= camp.address.region %>" class="form-control selectpicker">
                     <option value="">Select a Region</option>
                     <option value="AL">Albania</option>
                     <option value="DZ">Algeria</option>
@@ -99,7 +99,7 @@
                   </select>
               </div>
               <div class="col col-lg-3 col-md-10">
-                <select id="city" name="city" class="form-control selectpicker">
+                <select id="city" name="city" value="<%= camp.address.city %>" class="form-control selectpicker">
                     <option value="">Select a City</option>
                     <option value="AL">Albania</option>
                     <option value="DZ">Algeria</option>
@@ -110,13 +110,13 @@
                   </select>
               </div>
               <div class="col col-lg-4 col-md-10">
-                <input type="text" name="address" id="address" class="form-control" placeholder="No.7,Aung Thu Kha street" required>
+                <input type="text" name="address" id="address" class="form-control" value="<%= camp.address.other %>" placeholder="No.7,Aung Thu Kha street" required>
               </div>
             </div>
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="postcode">Goal <span class="required">*</span></label>
               <div class="col col-lg-4 col-md-10">
-                <input type="number" name="goal" id="goal" class="form-control" placeholder="Amount" min="1" required>
+                <input type="number" name="goal" id="goal" class="form-control" value="<%= camp.goal %>" placeholder="Amount" min="1" required>
               </div>
               <div class="col col-lg-3 col-md-10">
                 <input type="text" name="th" id="th" class="form-control" value="0,000" readonly>
@@ -128,13 +128,13 @@
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="endDate">End date <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
-                <input type="date" name="endDate" id="endDate" class="form-control" required>
+                <input type="date" name="endDate" id="endDate" value="<%= camp.dueDate %>" class="form-control" required>
               </div>
             </div>
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="tags">Tags</label>
               <div class="col col-lg-10 col-md-10">
-                <input type="text" name="tags" id="tags" class="form-control" placeholder="#Education, #Children">
+                <input type="text" name="tags" id="tags" value="<%= camp.tags %>" class="form-control" placeholder="#Education, #Children">
               </div>
             </div>
             <div class="text-center">
@@ -223,7 +223,7 @@
     },
     theme: 'snow'
   });
-
+  // quill('<%= camp.story.html %>');
   // jQuery.noConflict();
   $(function() {
     function readURL(input) {
@@ -239,12 +239,12 @@
       readURL(this);
     });
   });
-  
+
   save.onclick = function() {
     var formData = new FormData(document.querySelector('#frm'));
     formData.append('contents', quill.container.firstChild.innerHTML);
     formData.append('text', quill.getText());
-    $.ajax('/campaign/add', {
+    $.ajax('/campaign/modify', {
       method: 'POST',
       data: formData,
       processData: false,
