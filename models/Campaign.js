@@ -97,7 +97,7 @@ var CampaignSchema = new Schema({
    // System fields
    isDeleted: {
        type: Boolean,
-       default: false,
+       default: false
    },
    // Audit fields
    updated: {

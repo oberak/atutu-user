@@ -5,11 +5,18 @@
   <% include ../partial/head.ejs %>
 </head>
 <style media="screen">
+td{
+  padding-left: 50px;
+  padding-bottom: 30px;
+}
+#goal{
+    border: none;
+}
   #like {
     background-color: #090df4;
     border: none;
     color: white;
-    padding: 8px 15px;
+    padding: 8px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -18,7 +25,19 @@
     cursor: pointer;
     border-radius: 8px;
   }
-
+  #report {
+    background-color: darkblue;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 3px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
   #fav {
     background-color: #cc1010;
     border: none;
@@ -31,11 +50,9 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 }
-#facebook{
+#fb{
   background-color: #3f41a3;
   border: none;
   color: white;
@@ -46,7 +63,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 a:hover {
   text-decoration: underline;
@@ -54,8 +71,7 @@ a:hover {
 b{
   font-size: 2rem;
 }
-=======
->>>>>>> 281df7fa2cd51ec473e214dd59c1304a59cc7807
+
   }
 
   #facebook {
@@ -79,10 +95,7 @@ b{
   b {
     font-size: 2rem;
   }
-<<<<<<< HEAD
-=======
->>>>>>> 5870850736e7f1e0c0de063912a8b62ebbc8d874
->>>>>>> 281df7fa2cd51ec473e214dd59c1304a59cc7807
+
 </style>
 
 <body>
@@ -96,126 +109,6 @@ b{
       <!-- BEGIN MAIN CONTENT -->
       <main class="site-content">
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<div class="container no-top-padding">
-	<ol class="breadcrumb">
-		<li><a href="#">Home</a></li>
-		<li class="active">Causes</li>
-	</ol>
-	<div class="post">
-		<header class="post-header">
-			<h1>Campaign Detail View</h1>
-			<div class="post-meta">
-				<div class="post-meta-item">
-					<i class="fa fa-folder-o"></i> Education
-				</div>
-			</div>
-		</header>
-		<div class="row">
-			<div class="col col-lg-9 col-md-9">
-				<header class="secondary-post-header">
-					<div class="post-thumb">
-						<%= campaign.imgUrl %>
-					</div>
-					<div class="post-header-inner">
-						<div class="cause-progress">
-							<div class="cause-progress-val">
-								<div class="cause-progress-raised">Raised <span>$9,800</span></div>
-								<div class="cause-progress-goal">Goal <span>$20,000</span></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar active" role="progressbar" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100">
-									<span data-toggle="progress-tooltip" data-placement="top" title="49%"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</header>
-        <div>
-          <h3>Brief</h3>
-          <p>Lorem ipsum dolor sit amet, Ut enim ad minim veniam, nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <hr>
-        <div>
-          <h3>Story</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active">
-						<a href="#donorlist" aria-controls="donorlist" role="tab" data-toggle="tab">Donor List</a>
-					</li>
-					<li role="presentation">
-						<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="donorlist">
-            <ul type="none">
-              <li>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-        					<div class="catalog-item">
-        						<header class="catalog-item-header">
-        							<div class="catalog-item-thumb">
-        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-        							</div>
-        						</header>
-        						<div class="catalog-item-inner">
-        							<div class="row">
-        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-        									<h3><a href="product.html">Kris</a></h3>
-        									<div class="rating star-icon color-ok value-5">
-        									</div>
-        								</div>
-        							</div>
-        							</div>
-        					</div>
-        				</div>
-              </li>
-              <li>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-        					<div class="catalog-item">
-        						<header class="catalog-item-header">
-        							<div class="catalog-item-thumb">
-        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-        							</div>
-        						</header>
-        						<div class="catalog-item-inner">
-        							<div class="row">
-        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-        									<h3><a href="product.html">Wu Yi Fen</a></h3>
-        									<div class="rating star-icon color-ok value-5">
-        									</div>
-        								</div>
-        							</div>
-        							</div>
-        					</div>
-        				</div>
-              </li>
-              <li>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-        					<div class="catalog-item">
-        						<header class="catalog-item-header">
-        							<div class="catalog-item-thumb">
-        								<a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-        							</div>
-        						</header>
-        						<div class="catalog-item-inner">
-        							<div class="row">
-        								<div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-        									<h3><a href="product.html">Glaxy</a></h3>
-        									<div class="rating star-icon color-ok value-5">
-        									</div>
-        								</div>
-        							</div>
-        							</div>
-        					</div>
-        				</div>
-              </li>
-            </ul>
-=======
->>>>>>> 281df7fa2cd51ec473e214dd59c1304a59cc7807
         <div class="container no-top-padding">
           <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
@@ -223,7 +116,7 @@ b{
           </ol>
           <div class="post">
             <header class="post-header">
-              <h1><%= camp.title%> Detail </h1>
+              <h1><%= camp.title%></h1>
               <div class="post-meta">
                 <div class="post-meta-item">
                   <i class="fa fa-folder-o"></i> Education
@@ -234,7 +127,7 @@ b{
               <div class="col col-lg-9 col-md-9">
                 <header class="secondary-post-header">
                   <div class="post-thumb">
-                    <img src="/images/news-photo-1.jpg" width="1000" height="550" alt="">
+                    <img src="<%=camp.imgUrl%>" width="1000" height="550" alt="">
                   </div>
                   <div class="post-header-inner">
                     <div class="cause-progress">
@@ -251,156 +144,163 @@ b{
                 </header>
                 <div>
                   <h3>Brief</h3>
-                  <p>Lorem ipsum dolor sit amet, Ut enim ad minim veniam, nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <%= camp.brief %>
                 </div>
                 <hr>
                 <div>
                   <h3>Story</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <%= camp.story.text %>
                 </div>
+                <p></p>
                 <ul class="nav nav-tabs" role="tablist">
+
                   <li role="presentation" class="active">
+                    <div class="post-meta-item">
+                      <center><i class="fa fa-user-o"></i> 15</center>
+                    </div>
                     <a href="#donorlist" aria-controls="donorlist" role="tab" data-toggle="tab">Donor List</a>
                   </li>
+
                   <li role="presentation">
+                    <div class="post-meta-item">
+                      <center><i class="fa fa-comments"></i> 16</center>
+                    </div>
                     <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a>
                   </li>
+
                 </ul>
                 <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="donorlist">
-                    <ul type="none">
-                      <li>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                          <div class="catalog-item">
-                            <header class="catalog-item-header">
-                              <div class="catalog-item-thumb">
-                                <a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-                              </div>
-                            </header>
-                            <div class="catalog-item-inner">
-                              <div class="row">
-                                <div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-                                  <h3><a href="product.html">Kris</a></h3>
-                                  <div class="rating star-icon color-ok value-5">
-                                  </div>
-                                </div>
-                              </div>
+                    <table>
+                      <tr>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
                             </div>
+                            <a href=""> John Smith </a>
                           </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                          <div class="catalog-item">
-                            <header class="catalog-item-header">
-                              <div class="catalog-item-thumb">
-                                <a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-                              </div>
-                            </header>
-                            <div class="catalog-item-inner">
-                              <div class="row">
-                                <div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-                                  <h3><a href="product.html">Wu Yi Fen</a></h3>
-                                  <div class="rating star-icon color-ok value-5">
-                                  </div>
-                                </div>
-                              </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
                             </div>
+                            <a href=""> John Smith </a>
                           </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                          <div class="catalog-item">
-                            <header class="catalog-item-header">
-                              <div class="catalog-item-thumb">
-                                <a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-                              </div>
-                            </header>
-                            <div class="catalog-item-inner">
-                              <div class="row">
-                                <div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-                                  <h3><a href="product.html">Glaxy</a></h3>
-                                  <div class="rating star-icon color-ok value-5">
-                                  </div>
-                                </div>
-                              </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
                             </div>
+                            <a href=""> John Smith </a>
                           </div>
-                        </div>
-                      </li>
-                    </ul>
-<<<<<<< HEAD
-=======
->>>>>>> 5870850736e7f1e0c0de063912a8b62ebbc8d874
->>>>>>> 281df7fa2cd51ec473e214dd59c1304a59cc7807
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                      </tr>
 
-                    <ul type="none">
-                      <li>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                          <div class="catalog-item">
-                            <header class="catalog-item-header">
-                              <div class="catalog-item-thumb">
-                                <a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-                              </div>
-                            </header>
-                            <div class="catalog-item-inner">
-                              <div class="row">
-                                <div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-                                  <h3><a href="product.html">Fen Fen</a></h3>
-                                  <div class="rating star-icon color-ok value-5">
-                                  </div>
-                                </div>
-                              </div>
+                      <tr>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
                             </div>
+                            <a href=""> John Smith </a>
                           </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                          <div class="catalog-item">
-                            <header class="catalog-item-header">
-                              <div class="catalog-item-thumb">
-                                <a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-                              </div>
-                            </header>
-                            <div class="catalog-item-inner">
-                              <div class="row">
-                                <div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-                                  <h3><a href="product.html">John Smith</a></h3>
-                                  <div class="rating star-icon color-ok value-5">
-                                  </div>
-                                </div>
-                              </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
                             </div>
+                            <a href=""> John Smith </a>
                           </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                          <div class="catalog-item">
-                            <header class="catalog-item-header">
-                              <div class="catalog-item-thumb">
-                                <a href="product.html"><img src="/images/cart-product-photo-1.jpg" width="250" height="300"  alt=""></a>
-                              </div>
-                            </header>
-                            <div class="catalog-item-inner">
-                              <div class="row">
-                                <div class="col col-lg-8 col-md-6 col-sm-8 col-xs-8">
-                                  <h3><a href="product.html">Blue Icon</a></h3>
-                                  <div class="rating star-icon color-ok value-5">
-                                  </div>
-                                </div>
-                              </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
                             </div>
+                            <a href=""> John Smith </a>
                           </div>
-                        </div>
-                      </li>
-                    </ul>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="post-author-photo">
+                              <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                            </div>
+                            <a href=""> John Smith </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
 
                     <nav aria-label="Page navigation" class="text-center">
                       <ul class="pagination">
@@ -578,15 +478,12 @@ b{
                           <textarea class="form-control" cols="90" rows="8" name="message" required></textarea>
                         </div>
                         <input type="submit" class="btn btn-lg btn-primary" value="Submit a comment">
+                        <p></p>
                       </form>
                     </div>
-
                   </div>
                 </div>
 
-                <input type="button" id="like" name="like" value="Like"> &nbsp&nbsp&nbsp
-                <input type="button" id="fav" name="fav" value="Favorite"> &nbsp&nbsp&nbsp
-                <input type="button" name="facebook" id="facebook" value="Share on Facebook">
 
                 <footer class="entry-footer">
                   <div class="row">
@@ -605,17 +502,22 @@ b{
                       </form>
                     </div>
 
-                    <div id="cat">
-                      <select style="width:255px; height:45px;">
-              <option value="0">Select Categories:</option>
-              <option value="1">Audi</option>
-              <option value="2">BMW</option>
-              <option value="3">Citroen</option>
-              <option value="4">Ford</option>
-              <option value="5">Honda</option>
-            </select>
+                    <div>
+                      <select class="form-control">
+                        <option value="0">Select Categories:</option>
+                        <option value="1">Audi</option>
+                        <option value="2">BMW</option>
+                        <option value="3">Citroen</option>
+                        <option value="4">Ford</option>
+                        <option value="5">Honda</option>
+                      </select>
                     </div>
+                    <p></p>
 
+                    <div class="post-details-item">
+          						<h3>Goal</h3>
+          						<p><input type="text" id="goal" name="" value="<%= camp.goal %>0,000 kyats" readonly></p>
+          					</div>
                     <p></p>
 
                     <h3>Creator</h3>
@@ -625,24 +527,46 @@ b{
                       </div>
                       <a href=""><b>John Smith</b></a><br> 10 campaigns
                     </div>
+
                     <input type="number" step="500" name="amount" id="amount" class="form-control" placeholder="2,500 Kyats" min="2500" required>
                     <p></p>
-                    <a href="donate.html" style="width:255px; height:45px; border-radius: 4px;" class="btn btn-primary btn-block">Donate now</a>
+                    <a href="donate.html" style="border-radius: 4px;" class="btn btn-primary btn-block">Donate now</a>
                     <p></p>
-                    <center><b><a href="#" id="list">Go to Campaign list</a></b></center>
-                    <hr>
-                    <h3>Tags</h3>
-                    <div class="tags">
-                      <a href="causes.html">Education</a>
-                      <a href="causes.html">Orphans</a>
-                    </div>
-                    <!-- <h3>Share</h3>
-					<ul class="social-nav">
-						<li><a href="" class="fa fa-facebook"></a></li>
-					</ul> -->
+
+                    <h3 class="post-details-item">Tags</h3>
+          					<div class="tags">
+                      <% for(var i = 0; i< camp.tags.length; i++ ){%>
+                        <a href=""><%= camp.tags[i] %></a>
+                      <%}%>
+          					</div>
+
+                    <h3 class="post-details-item">End date</h3>
+          					<div>
+          						<%= camp.dueDate %>
+          					</div>
+                    <p></p>
+
+                    <div class="post-details-item">
+          						<h3>Address</h3>
+          						<p><%= camp.address.region %> &nbsp&nbsp&nbsp <%= camp.address.city %> &nbsp&nbsp&nbsp <%= camp.address.other %></p>
+          					</div>
+                    <p></p>
+
+                    <center><b><a href="/campaign/list" id="list">Go to Campaign list</a></b></center>
+                    <p></p>
+                    <p></p>
+                    <center><button type="button" id="fb">Share on Facebook</button></center>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <p></p>
+            <p></p>
+            <div>
+              <button type="button" id="like">Like</button>
+              <button type="button" id="fav">Favorite</button>
+              <button type="button" id="report">Report</button>
             </div>
 
             <hr>
@@ -825,5 +749,26 @@ b{
         <!-- Main js -->
         <script src="/scripts/main.js"></script>
 </body>
+
+<script type="text/javascript">
+
+$('#like').click(function () {
+  console.log('like');
+  alert('Like this campaign');
+});
+$('#fav').click(function () {
+  console.log('favorite');
+  alert('Favoeite');
+});
+$('#report').click(function () {
+  console.log('Report');
+  alert('Report');
+});
+$('#fb').click(function () {
+  console.log('favorite');
+  alert('Share on facebook');
+});
+
+</script>
 
 </html>

@@ -42,6 +42,7 @@
             <h1>Modify Campaign</h1>
           </header>
           <form class="checkout-form form-horizontal" id="frm" method="post" action="/campaign/add" name="frm" enctype="multipart/form-data">
+            <input type="hidden" name="cam_id" value="<%= camp._id %>">
             <h2>Campaign details</h2>
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="categories">Categories <span class="required">*</span></label>
@@ -128,7 +129,7 @@
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="endDate">End date <span class="required">*</span></label>
               <div class="col col-lg-10 col-md-10">
-                <input type="date" name="endDate" id="endDate" value="<%= camp.dueDate %>" class="form-control" required>
+                <input type="date" name="endDate" id="endDate" value="<%= camp.endDate %>" class="form-control" required>
               </div>
             </div>
             <div class="form-group">
@@ -223,8 +224,7 @@
     },
     theme: 'snow'
   });
-  // quill('<%= camp.story.html %>');
-  // jQuery.noConflict();
+
   $(function() {
     function readURL(input) {
       if (input.files && input.files[0]) {
@@ -260,6 +260,5 @@
       },
     });
   }
-  //
 </script>
 </html>
