@@ -33,7 +33,7 @@
                     <li class="main-nav-item active">
                         <a class="main-nav-link" href="index.html">Home</a>
                     </li>
-                    <li class="main-nav-item main-nav-item-parent ">
+                    <!-- <li class="main-nav-item main-nav-item-parent ">
                         <a class="main-nav-link" href="#">Pages</a>
                         <ul>
                             <li><a href="about.html">About us</a></li>
@@ -49,16 +49,16 @@
                             <li><a href="news-with-sidebar.html">News with sidebar</a></li>
                             <li><a href="article.html">Article</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="main-nav-item main-nav-item-parent ">
-                        <a class="main-nav-link" href="causes.html">Campaign</a>
+                        <a class="main-nav-link" href="/campaign/list">Campaign</a>
                         <ul>
                             <li><a href="/campaign/list">Campaign List</a></li>
                             <li><a href="/campaign/add">Create Campaign</a></li>
-                            <li><a href="donate.html">Donate</a></li>
+
                         </ul>
                     </li>
-                    <li class="main-nav-item main-nav-item-parent ">
+                    <!-- <li class="main-nav-item main-nav-item-parent ">
                         <a class="main-nav-link" href="events.html">Events</a>
                         <ul>
                             <li><a href="events.html">Events</a></li>
@@ -74,7 +74,7 @@
                             <li><a href="cart.html">Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="main-nav-item ">
                         <a class="main-nav-link" href="contact.html">Contact</a>
                     </li>
@@ -87,9 +87,9 @@
             </nav>
             <ul class="user-nav">
                 <li class="user-nav-item">
-                    <a class="user-nav-link" href="cart.html">
+                    <a class="user-nav-link" href="/campaign/cart">
                         <i class="fa fa-shopping-basket"></i>
-                        <sup>8</sup>
+                        <sup id="count">0</sup>
                     </a>
                 </li>
                 <li class="user-nav-item">
@@ -129,3 +129,16 @@
     <button type="button" class="site-search-close-btn">×</button>
 </div>
 <!-- END SEARCH -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script type="text/javascript">
+
+if( Cookies.get('cart')){
+  var countstr = Cookies.get('cart').substring(2);
+  count = JSON.parse(countstr);
+  $('#count').html(count.items.length);
+  }else{
+    $('#count').html(0);
+  }
+
+</script>
