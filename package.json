@@ -5,10 +5,11 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "db": "mongod --dbpath d:/workspace/db"
+    "db": "mongod --dbpath ~/workspace/db"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "connect": "^3.6.6",
     "cookie-parser": "~1.4.3",
     "cropper": "^4.0.0",
     "dateformat": "^3.0.3",
