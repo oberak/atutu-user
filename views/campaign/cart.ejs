@@ -4,6 +4,48 @@
     <% include ../partial/head.ejs %>
 
 </head>
+<link rel="stylesheet" href="/stylesheets/remodal.css">
+<link rel="stylesheet" href="/stylesheets/remodal-default-theme.css">
+<style media="screen">
+
+  <style>.slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+</style>
 <body >
 
     <div id="wrapper" class="wrapper">
@@ -77,16 +119,16 @@
 				<table class="table table-bordered">
 					<tbody>
             <tr>
-							<th>Donate to ATUTU Organization <a href="#">Edit</a> <br> <a href="#">Why atutu need your doante?</a> </th>
-							<td>$55.00</td>
+							<th>Donate to ATUTU Organization <a href="#modal">Edit</a> <br> <a href="#modal_why">Why atutu need your doante?</a> </th>
+							<td id="atutu_amt">2000</td>
 						</tr>
 						<tr>
 							<th>Total Donate Amount</th>
-							<td>$55.00</td>
+							<td id="tol_amt">0</td>
 						</tr>
 						<tr>
 							<th>Your Amount</th>
-							<td>$55.00</td>
+							<td id="user_amt"> 0</td>
 						</tr>
 					</tbody>
 				</table>
@@ -95,12 +137,35 @@
 		</div>
 	</form>
 
-</div>
-
-
-        </main>
+  </div>
+</main>
         <!-- END MAIN CONTENT -->
+        <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+          <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+          <div>
+              <h3 id="modal1Title">Donate to Atutu Organization</h3>
+              <canvas id="tree" ></canvas>
+              <div class="slidecontainer">
+              <input type="range" min="1000" max="50000" value="2000" step="500" class="slider" name="amount_org" id="amount_org">
+              <p>Donate: <span id="disp_amt"></span></p>
+            </div>
+          </div>
+          <br>
+          <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+          <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        </div>
 
+        <div class="remodal" data-remodal-id="modal_why" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+          <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+          <div background-color="blue">
+            <h3 id="modal1Title">Why need to donate Atutu Organization?</h3>
+            <p id="modal1Desc">
+              We really need your donation because we need some fun for transition fee to campaigns, our webpage maintain fee and other..
+            </p>
+          </div>
+          <br>
+
+        </div>
         <!-- BEGIN FOOTER -->
         <% include ../partial/footer.ejs %>
         <!-- END FOOTER -->
@@ -116,6 +181,86 @@
 
     <!-- Main js -->
     <script src="/scripts/main.js"></script>
+    <script src="/javascripts/remodal.js"></script>
 
 </body>
+<script type="text/javascript">
+
+    $(document).on('opened', '.remodal', function () {
+      console.log('opened');
+    });
+
+    $(document).on('closed', '.remodal', function (e) {
+      if(e.reason == 'confirmation')
+      $('#atutu_amt').html(slider.value);
+      sum();
+
+    });
+
+
+    var canvas = document.getElementById('tree'); // in your HTML this element appears as <canvas id="myCanvas"></canvas>
+   var ctx = canvas.getContext('2d');
+   canvas.width = 800;
+   canvas.height = 600;
+
+   function draw(startX, startY, len, angle, branchWidth) {
+       ctx.lineWidth = branchWidth;
+       ctx.beginPath();
+       ctx.save();
+
+       ctx.strokeStyle = "darkgreen"; // saddlebrown
+       ctx.fillStyle = "green";
+       ctx.shadowBlur = 15;
+       ctx.shadowColor = "rgba(0,0,0,0.8)";
+
+       ctx.translate(startX, startY);
+       ctx.rotate(angle * Math.PI / 180);
+       ctx.moveTo(0, 0);
+       // ctx.lineTo(0, -len);
+
+       if (angle > 0) {
+           ctx.bezierCurveTo(10, -len / 2, 10, -len / 2, 0, -len);
+       } else {
+           ctx.bezierCurveTo(-10, -len / 2, -10, -len / 2, 0, -len);
+       }
+       ctx.stroke();
+
+       if (len < 10) {
+           ctx.beginPath();
+           ctx.arc(0, -len, 10, 0, Math.PI / 2);
+           ctx.fill();
+           ctx.restore();
+           return;
+       }
+
+       draw(0, -len, len * 0.8, angle + 10, branchWidth * 0.8);
+       draw(0, -len, len * 0.8, angle - 10, branchWidth * 0.8);
+       ctx.restore();
+   }
+
+   // startX, startY, len, angle, branchWidth
+   draw(350, 600, 50, 0, 5);
+
+   var slider = document.getElementById("amount_org");
+   var output = document.getElementById("disp_amt");
+   output.innerHTML = slider.value;
+
+   slider.oninput = function() {
+     output.innerHTML = this.value;
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
+     var len = this.value/1000 + 50;
+     draw(350, 600, len, 0, len/10);
+   }
+   function sum() {
+      var total = 0;
+      amounts_tol = JSON.parse(Cookies.get('cart').substring(2));
+      for(var i=0; i<amounts_tol.items.length; i++){
+        total += Number(amounts_tol.items[i].amount);
+      }
+      console.log(total);
+      console.log(typeof slider.value);
+      $('#tol_amt').html(total+ Number(slider.value));
+   }
+   sum();
+</script>
 </html>
