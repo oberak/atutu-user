@@ -142,6 +142,17 @@ b{
                     </div>
                   </div>
                 </header>
+
+                <script type="text/javascript">
+                  function progressFun(i) {
+                    var real = Math.floor(((<%= camp.raised.credit.amount%>)/(<%= camp.goal %>))* 100);// 5000 is amount , 15000 is goal
+                    document.getElementById('real'+i).style.width = String(real)+'%' ;
+                    var virtual = Math.floor(((<%= camp.raised.reserved.amount%>)/(<%= camp.goal %>))* 100); //1000 is virtaul ,15000 is Goal
+                    document.getElementById('virtual'+i).style.width = String(virtual)+'%' ;
+                  }
+                  progressFun(<%= i %>);
+                </script>
+
                 <div>
                   <h3>Brief</h3>
                     <%= camp.brief %>
@@ -530,8 +541,14 @@ b{
 
                     <input type="number" step="500" name="amount" id="amount" class="form-control" placeholder="2,500 Kyats" min="2500" required>
                     <p></p>
-                    <a href="donate.html" style="border-radius: 4px;" class="btn btn-primary btn-block">Donate now</a>
-                    <p></p>
+
+                    <div class="text-center">
+                      <% if(camp.cart){%>
+                        <button type="button" id="btnchout" onclick="chout()" class="btn btn-primary" >Checkout</button>
+                      <%}else{%>
+                          <button type="button" id="btndonate" onclick="cart('<%= camp._id %>', 2500)" class="btn btn-default" >Donate</button>
+                      <%}%>
+      							</div>
 
                     <h3 class="post-details-item">Tags</h3>
           					<div class="tags">
@@ -585,8 +602,8 @@ b{
                     <h3><a href="cause.html">Children’s health fund</a></h3>
                     <div class="cause-progress">
                       <div class="cause-progress-val">
-                        <div class="cause-progress-raised">Raised <span>$11,300</span></div>
-                        <div class="cause-progress-goal">Goal <span>$15,000</span></div>
+                        <div class="cause-progress-raised">Raised <span>0 kyats</span></div>
+                        <div class="cause-progress-goal">Goal <span><%= camp.goal %>0,000 kyats</span></div>
                       </div>
                       <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
@@ -768,6 +785,28 @@ $('#fb').click(function () {
   console.log('favorite');
   alert('Share on facebook');
 });
+
+function cart(id,amt) {
+  console.log(id);
+  $.ajax('/campaign/addcart',{
+    method: 'POST',
+    data: {'id':id,'amount':amt},
+    success: function () {
+      console.log('success');
+      location.href = '/campaign/detail/'+id;
+    },
+    error: function (err) {
+      console.log(err);
+    },
+    complate: function () {
+      console.log('complate');
+    }
+  });
+
+}
+function chout() {
+  location.href = "/campaign/cart";
+}
 
 </script>
 

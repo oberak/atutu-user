@@ -9,8 +9,9 @@ var upload = multer({
 var auth = function(req, res, next) {
   if (req.session.user) {
     return next();
-  } else
+  } else{
     res.redirect('/signup');
+    }
 };
 router.get('/add', auth, function(err, res, next) {
   res.render('campaign/campaign-add');
@@ -21,7 +22,12 @@ router.get('/detail/:id', function(req, res, next) {
     _id: req.params.id
   }, function(err, rtn) {
     if (err) throw err;
-    console.log(rtn);
+    for (var j = 0; j < req.cookies.cart.items.length; j++) {
+      if (req.cookies.cart.items[j].id == rtn._id) {
+        rtn.cart = true;
+        break;
+      }
+    }
     if (rtn)
       res.render('campaign/campaign-detail', {
         camp: rtn
@@ -143,14 +149,6 @@ router.post('/modify', upload.single('uploadImg'), function(req, res, next) {
     });
   });
 
-router.get('/detail/:id', function (req,res,next) {
-  Campaign.findById({_id:req.params.id},function (err,rtn) {
-    if(err) throw err;
-    console.log(rtn);
-    if(rtn)
-    res.render('campaign/campaign-detail',{camp:rtn});
-  });
-});
 
 router.post('/detail', upload.single('uploadImg'), function(req, res, next) {
   var campaign = new Campaign();

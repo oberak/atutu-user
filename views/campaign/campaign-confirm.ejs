@@ -45,7 +45,7 @@ b{
 			<h2><%= camp.title %></h2>
 			<div class="post-meta">
 				<div class="post-meta-item">
-					<i class="fa fa-folder-o"></i> Education
+					<i class="fa fa-folder-o"></i> Category name
 				</div>
 			</div>
 		</header>
@@ -58,17 +58,27 @@ b{
 					<div class="post-header-inner">
 						<div class="cause-progress">
 							<div class="cause-progress-val">
-								<div class="cause-progress-raised">Raised <span>0 kyats</span></div>
-								<div class="cause-progress-goal">Goal <span><%= camp.goal %>0,000 kyats</span></div>
+								<div class="cause-progress-raised">Raised <span><%= camp.raised.credit.amount%> Kyats</span></div>
+								<div class="cause-progress-goal">Goal <span><%= camp.goal %>,000 kyats</span></div>
 							</div>
-							<div class="progress">
-								<div class="progress-bar active" role="progressbar" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100">
-									<span data-toggle="progress-tooltip" data-placement="top" title="49%"></span>
-								</div>
-							</div>
+              <div class="progress">
+                <div class="progress-bar" id="real" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar-info" id="virtual" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
 						</div>
 					</div>
 				</header>
+
+        <script type="text/javascript">
+          function progressFun(i) {
+            var real = Math.floor(((<%= camp.raised.credit.amount%>)/(<%= camp.goal %>))* 100);// 5000 is amount , 15000 is goal
+            document.getElementById('real'+i).style.width = String(real)+'%' ;
+            var virtual = Math.floor(((<%= camp.raised.reserved.amount%>)/(<%= camp.goal %>))* 100); //1000 is virtaul ,15000 is Goal
+            document.getElementById('virtual'+i).style.width = String(virtual)+'%' ;
+          }
+          progressFun(<%= i %>);
+        </script>
+
         <div>
           <h3>Brief</h3>
           <%= camp.brief %>
