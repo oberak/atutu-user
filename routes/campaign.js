@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 var Campaign = require('../models/Campaign');
+var Account = require('../models/Account');
 var cookieParser = require('cookie-parser');
 var upload = multer({
   dest: 'public/images/uploads'
@@ -237,6 +238,35 @@ router.post('/addcart', function(req, res, next) {
   });
 });
 
+router.post('/checkuser',function (req,res, next) {
+
+  var link;
+  if (req.session.user) {
+    Account.find({user:req.session.user.id},function (err,rtn) {
+      if(err) throw err;
+      if(rtn[0].balance.credit >= Number(req.body.total)){
+        console.log('if work');
+        link = '/campaign/checkout';
+      }else {
+        console.log('else work');
+        link = '/campaign/buypoint';
+      }
+      res.json({
+        status: true,
+        msg: 'success',
+        link: link,
+      });
+    });
+  }else {
+    link = '/signup';
+    res.json({
+      status: true,
+      msg: 'success',
+      link: link,
+    });
+  }
+});
+
 router.get('/remove/:id', function(req, res, next) {
   console.log(req.cookies.cart);
 
@@ -250,5 +280,39 @@ router.get('/remove/:id', function(req, res, next) {
   var items = req.cookies.cart;
   res.cookie('cart', items);
   res.redirect('/campaign/cart');
+});
+
+router.get('/checkout', function(req, res, next) {
+  if (!req.cookies.cart) {res.render('campaign/checkout', {
+    itemdata: []
+  });}else{
+  console.log('start');
+  var keys = [];
+  var amounts = [];
+  for (var y in req.cookies.cart.items) {
+    console.log(y);
+    keys.push(req.cookies.cart.items[y].id);
+    amounts.push(req.cookies.cart.items[y].amount);
+  }
+  console.log(keys);
+  console.log(amounts);
+  Campaign.find({
+    _id: {
+      $in: keys
+    }
+  }, function(err, rtn) {
+    if (err) throw err;
+    res.render('campaign/checkout', {
+      itemdata: rtn,
+      amounts : amounts
+    });
+    console.log(rtn);
+  });
+  console.log('Cookies: ', req.cookies.cart.items);
+  }
+});
+
+router.get('/buypoint', function(req, res, next) {
+  res.render('campaign/buypoint');
 });
 module.exports = router;
