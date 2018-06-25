@@ -3,6 +3,8 @@ var router = express.Router();
 var multer = require('multer');
 var Campaign = require('../models/Campaign');
 var Account = require('../models/Account');
+var Donate = require('../models/Donate');
+var Transition = require('../models/Transition');
 var cookieParser = require('cookie-parser');
 var upload = multer({
   dest: 'public/images/uploads'
@@ -314,5 +316,10 @@ router.get('/checkout', function(req, res, next) {
 
 router.get('/buypoint', function(req, res, next) {
   res.render('campaign/buypoint');
+});
+router.post('/buypoint',function (req,res,next) {
+  var transition = new Transition();
+  console.log('aaaa',req.body,req.cookies);
+  res.send('calling....');
 });
 module.exports = router;
