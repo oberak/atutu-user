@@ -10,6 +10,10 @@ var TransitionSchema = new Schema({
        type: Schema.Types.ObjectId,
        ref: 'Accounts',
    },
+   bank_accname:{
+     type: String,
+     required: true,
+   },
    amount:{
      type: Number,
      required: true,
@@ -34,6 +38,7 @@ var TransitionSchema = new Schema({
   donate_id:{
     type: Schema.Types.ObjectId,
     ref: 'Donates',
+    default: null,
   }
 });
 

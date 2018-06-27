@@ -56,7 +56,7 @@
     <div class="form-group">
 			<label class="col col-lg-3 col-md-2 control-label" for="name">Transfer Amount<span class="required">*</span></label>
 			<div class="col col-lg-9 col-md-10">
-				<input type="number" name="trf_amt" id="trf_amt" class="form-control" value="2000" step="500" required>
+				<input type="number" name="trf_amt" id="trf_amt" class="form-control" value="1" readonly step="500" required>
 			</div>
 		</div>
     <div class="form-group">
@@ -86,7 +86,6 @@
 		<a href="#modal"><button type="button" class="btn btn-lg btn-primary" id="buypoint">Buy Point</button></a>
 		</div>
 	</form>
-
 </div>
         </main>
         <!-- END MAIN CONTENT -->
@@ -95,7 +94,6 @@
           <div>
               <h3 id="modal1Title">Thank You For Your Donation</h3>
               <p>You doanted campaigns at your cart with virtual atutu credit.If you want to active your virtual credit, you need to transfer amount within one week.</p>
-
           </div>
           <br>
           <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
@@ -124,7 +122,9 @@
     $(document).on('closed', '.remodal', function (e) {
       if(e.reason == 'confirmation') $('#frm').submit();
     });
-
+    $('#trf_amt').val(Cookies.get('total_amt'));
+    console.log($('#trf_amt').val());
+    console.log(Cookies.get('total_amt'));
   $('#bank_name').change(function () {
     var branch = $('#bank_name').val();
     if(branch == 'AYA'){
@@ -143,7 +143,7 @@
       textArea.value = $('.bank_id').html();
       textArea.focus();
       textArea.select();
-    document.execCommand("copy");
+      document.execCommand("copy");
   }
 </script>
 </html>

@@ -246,6 +246,8 @@ router.post('/checkuser',function (req,res, next) {
   if (req.session.user) {
     Account.find({user:req.session.user.id},function (err,rtn) {
       if(err) throw err;
+      var total_amt = Number(req.body.total);
+      res.cookie('total_amt', total_amt);
       if(rtn[0].balance.credit >= Number(req.body.total)){
         console.log('if work');
         link = '/campaign/checkout';
@@ -314,12 +316,46 @@ router.get('/checkout', function(req, res, next) {
   }
 });
 
-router.get('/buypoint', function(req, res, next) {
+router.get('/buypoint',auth, function(req, res, next) {
   res.render('campaign/buypoint');
 });
 router.post('/buypoint',function (req,res,next) {
   var transition = new Transition();
-  console.log('aaaa',req.body,req.cookies);
-  res.send('calling....');
+  var donate = new Donate();
+  console.log('aaaa',req.body,req.cookies.user_cookie);
+  Account.findOne({user:req.cookies.user_cookie.id},function (err,rtn) {
+    if(err) throw err;
+    var account = rtn._id
+    transition.acc_id = rtn._id;
+    transition.amount = req.body.trf_amt;
+    transition.type = "Deposite";
+    transition.bank_name = req.body.bank_name;
+    transition.bank_accname = req.body.bank_accname;
+    transition.save(function (err2,rtn2) {
+      if(err2) throw err2;
+      console.log('transition',rtn2);
+      donate.amount.reserved = req.cookies.total_amt;
+      donate.amount.total = req.cookies.total_amt;
+      donate.trans_id = rtn2._id;
+      donate.status = "reserved donation";
+      donate.donor_id = req.cookies.user_cookie.id;
+      for(var t in req.cookies.cart.items){
+        donate.campaigns.cam_id = req.cookies.cart.items[t].id;
+        donate.campaigns.amount = req.cookies.cart.items[t].amount;
+        console.log('numes');
+      }
+      donate.save(function (err3,rtn3) {
+        if(err3) throw err3;
+        console.log('donation',rtn3);
+          Transition.findByIdAndUpdate({_id:rtn3.trans_id},{$set:{_id:rtn3.trans_id,donate_id:rtn3._id}},{new: true},function (err5,rtn5) {
+            if(err5) throw err5;
+            console.log('SUCCESSFULLY CHANGE',rtn5);
+            res.redirect('/campaign/list');
+          });
+      });
+    });
+
+  });
+
 });
 module.exports = router;
