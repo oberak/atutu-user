@@ -326,7 +326,7 @@ router.post('/buypoint',function (req,res,next) {
   console.log('aaaa',req.body,req.cookies.user_cookie);
   Account.findOne({user:req.cookies.user_cookie.id},function (err,rtn) {
     if(err) throw err;
-    var account = rtn._id
+    var account = rtn._id;
     transition.acc_id = rtn._id;
     transition.amount = req.body.trf_amt;
     transition.type = "Deposite";

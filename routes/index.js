@@ -3,6 +3,7 @@ var router = express.Router();
 var multer = require('multer');
 var User = require('../models/User');
 var Campaign = require('../models/Campaign');
+var Account = require('../models/Account');
 var upload = multer({
   dest: 'public/images/uploads'
 });
