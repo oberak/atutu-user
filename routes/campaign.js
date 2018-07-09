@@ -365,14 +365,14 @@ router.post('/buypoint',function (req,res,next) {
   });
 
 });
-  router.post('/search',(req,res)=>{
-    Campaign.findById(req.body.camp_id, (err,rtn)=>{
+  router.post('/search',function(req,res){
+    Campaign.findById(req.body.camp_id, function(err,rtn){
       if(err)throw err;
       res.json({
         status: true,
         msg: 'success',
         camp: rtn,
-      })
-    })
+      });
+    });
   });
 module.exports = router;
