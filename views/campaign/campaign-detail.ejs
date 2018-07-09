@@ -534,9 +534,9 @@ b{
                     <h3>Creator</h3>
                     <div class="post-author">
                       <div class="post-author-photo">
-                        <a href=""><img src="/images/avatar-1.jpg" width="100" height="100" alt=""></a>
+                        <a href=""><img src="<%= creator.proUrl %>" width="100" height="100" alt=""></a>
                       </div>
-                      <a href=""><b>John Smith</b></a><br> 10 campaigns
+                      <a href=""><b><%= creator.name %></b></a><br> 10 campaigns
                     </div>
 
                     <input type="number" step="500" name="amount" id="amount" class="form-control" placeholder="2,500 Kyats" min="2500" required>

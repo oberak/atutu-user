@@ -33,7 +33,7 @@
 		<div class="col col-lg-3 col-md-3 col-sm-4">
 			<div class="profile">
 				<div class="photo">
-					<img src="<%= user.proUrl %>" width="300" height="300" alt="" onerror="this.src= '/images/user.png'">
+					<img src="<%=user.proUrl%>" width="300" height="300" alt="" onerror="this.src= '/images/user.png'">
 				</div>
 				<h3><%= user.name %></h3>
 			</div>
@@ -123,7 +123,8 @@
                 <td>Campaigns</td>
                 <td>Donate Amount</td>
               </tr>
-              <% for(var i=0; i< donate.campaigns.length; i++) { %>
+              <% if(donate != null){
+              for(var i=0; i< donate.campaigns.length; i++) { %>
       				<tbody>
       					<tr>
       						<td class="form-cart-item-title">
@@ -153,7 +154,8 @@
                 }
               })
               </script>
-              <% } %>
+              <% }
+            }%>
       			</table>
       		</div>
 					<div class="text-center">

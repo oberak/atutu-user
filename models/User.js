@@ -15,7 +15,6 @@ var UserSchema = new Schema({
   },
   proUrl: {
       type: String,
-      default: null,
   },
   id: {
     type: String,

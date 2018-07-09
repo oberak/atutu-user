@@ -4,6 +4,7 @@ var multer = require('multer');
 var Campaign = require('../models/Campaign');
 var Account = require('../models/Account');
 var Donate = require('../models/Donate');
+var User = require('../models/User');
 var Transition = require('../models/Transition');
 var flash = require('express-flash');
 var cookieParser = require('cookie-parser');
@@ -29,17 +30,19 @@ router.get('/detail/:id', function(req, res, next) {
     _id: req.params.id
   }, function(err, rtn) {
     if (err) throw err;
-    if (!req.cookies.cart) {res.render('campaign/campaign-detail', {camp: rtn});}
-    else{
-      for (var j = 0; j < req.cookies.cart.items.length; j++) {
-        if (req.cookies.cart.items[j].id == rtn._id) {
-          rtn.cart = true;
-          break;
+    User.findById(rtn.insertedBy,function(err2,rtn2){
+      if(err2) throw err2;
+      if (!req.cookies.cart) {res.render('campaign/campaign-detail', {camp: rtn,creator:rtn2});}
+      else{
+        for (var j = 0; j < req.cookies.cart.items.length; j++) {
+          if (req.cookies.cart.items[j].id == rtn._id) {
+            rtn.cart = true;
+            break;
+          }
         }
+        res.render('campaign/campaign-detail', {camp: rtn, creator:rtn2});
       }
-      res.render('campaign/campaign-detail', {camp: rtn});
-    }
-
+    });
   });
 });
 

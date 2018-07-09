@@ -80,14 +80,13 @@ router.post('/signup/duplicate', function(req, res, next) {
 
 router.get('/mypage',auth, function(req, res, next) {
   console.log(req.cookies.user_cookie.id);
-  var user_idx = req.cookies.user_cookie.id
+  var user_idx = req.cookies.user_cookie.id;
   User.findById({_id:user_idx},function(err1,rtn1){
     if(err1) throw err1;
     Campaign.find({insertedBy:req.cookies.user_cookie.id}, function(err, rtn) {
       if (err) throw err;
         Donate.findOne({donor_id:rtn1._id},function(err2,rtn2){
           if(err2) throw err2;
-          console.log('aqaqaq',rtn2);
           res.render('commons/mypage', { title: 'My Page', result:rtn, user : rtn1, donate : rtn2});
         });
       });
