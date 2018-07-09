@@ -26,6 +26,7 @@ router.get('/signup', function(req, res, next) {
 
 router.post('/signup', function(req, res, next) {
   var user = new User();
+  var account = new Account();
   user.name = req.body.name;
   user.phone = req.body.phone;
   user.id = req.body.id;
@@ -34,7 +35,13 @@ router.post('/signup', function(req, res, next) {
   user.role = req.body.role;
   user.save(function (err, rtn) {
     if(err) throw err;
-    console.log('save successful', rtn);
+    account.user = rtn._id;
+    account.balance.credit = 0;
+    account.balance.reserved = 0;
+    account.save(function (err2,rtn2) {
+      if(err2) throw err2;
+      console.log(rtn2);
+    });
     res.redirect('/signup');
   });
 });
@@ -48,10 +55,12 @@ router.post('/signin', function(req, res, next) {
       res.redirect('/signup');
     }else {
       var user_cookie = {name:user.name,id:user._id};
-      res.cookie('user_cookie',user_cookie);
+      res.cookie('user_cookie', user_cookie);
       req.session.user = { name: user.name, email: user.emailIn, id: user._id };
         res.redirect((req.body.forward)? req.body.forward : '/');
+
       }
+
   });
 });
 
