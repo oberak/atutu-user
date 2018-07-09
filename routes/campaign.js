@@ -350,7 +350,7 @@ router.post('/buypoint',function (req,res,next) {
           Transition.findByIdAndUpdate({_id:rtn3.trans_id},{$set:{_id:rtn3.trans_id,donate_id:rtn3._id}},{new: true},function (err5,rtn5) {
             if(err5) throw err5;
             console.log('SUCCESSFULLY CHANGE',rtn5);
-            res.redirect('/campaign/list');
+            res.clearCookie('cart').redirect('/campaign/list');
           });
       });
     });
