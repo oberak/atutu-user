@@ -33,16 +33,16 @@
 		<div class="col col-lg-3 col-md-3 col-sm-4">
 			<div class="profile">
 				<div class="photo">
-					<img src="<%= result.photo %>" width="300" height="300" alt="" onerror="this.src= '/images/profile-photo-5.jpg'">
+					<img src="<%= user.proUrl %>" width="300" height="300" alt="" onerror="this.src= '/images/user.png'">
 				</div>
-				<h3 id="user_name"></h3>
+				<h3><%= user.name %></h3>
 			</div>
 			<div class="list-group">
 				<a href="#" class="list-group-item active">
 					<i class="fa fa-user-circle-o"></i> Profile details
 				</a>
 				<a href="#" class="list-group-item">
-					<i class="fa fa-envelope-square"></i> users@gmail.com
+					<i class="fa fa-envelope-square"></i> <%= user.email %>
 				</a>
         <a href="javascript:edit_pro()" class="list-group-item">
           <i class="fa fa-user"></i> Edit Profile
@@ -66,19 +66,13 @@
 					<span class="badge">38</span>
 					<i class="fa fa-heart"></i> Donations
 				</a>
-        <a href="#" class="list-group-item">
+        <a href="/signout" class="list-group-item">
           <i class="fa fa-sign-out"></i> Logout
         </a>
 			</div>
 		</div>
 		<div class="col col-lg-9 col-md-9 col-sm-8">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.
-      </p>
-
+        <h3>Welcome your wall</h3>
 			<div class="row">
 
         <div class="col col-lg-10 col-md-10">
@@ -129,19 +123,36 @@
                 <td>Campaigns</td>
                 <td>Donate Amount</td>
               </tr>
-              <% for(var i = 0; i< result.length; i++) { %>
+              <% for(var i=0; i< donate.campaigns.length; i++) { %>
       				<tbody>
       					<tr>
       						<td class="form-cart-item-title">
-                    <img src="<%= result[i].imgUrl %>" width="200" height="200" alt="" id="disp">
-      							<h4><a id="disp" href="/campaign/detail/<%= result[i]._id %>"><%= result[i].title %></a></h4><br>
-                    <p><%= result[i].brief %></p>
+                    <img src="/images/user.png" width="200" height="200" alt="" id="disp_img<%=i%>">
+      							<h4><a id="disp_name<%=i%>" href="/campaign/detail/<%= donate.campaigns[i]._id %>">Camp Name</a></h4><br>
+                    <p id="disp_brief<%=i%>">This is brief</p>
       						</td>
       						<td class="form-cart-item-total">
-      							<span class="form-cart-amout">$55.00</span>
+      							<span class="form-cart-amout"><%= donate.campaigns[i].amount %></span>
       						</td>
       					</tr>
       				</tbody>
+              <script type="text/javascript">
+              $.ajax('/campaign/search',{
+                method: 'POST',
+                data:{'camp_id' : '<%= donate.campaigns[i].cam_id %>'},
+                success:function (rtn) {
+                  $('#disp_img<%=i%>').attr("src",rtn.camp.imgUrl);
+                  $('#disp_name<%=i%>').html(rtn.camp.title);
+                  $('#disp_brief<%=i%>').html(rtn.camp.brief);
+                },
+                error: function (err) {
+                  console.log(err);
+                },
+                complete: function () {
+                  console.log('complete');
+                }
+              })
+              </script>
               <% } %>
       			</table>
       		</div>
@@ -173,9 +184,15 @@
 <script type="text/javascript">
   var user_detail = Cookies.get('user_cookie').substring(2);
   str_user = JSON.parse(user_detail);
-  $('#user_name').html(str_user.name)
+
   function edit_pro() {
     location.href = "/profile/"+str_user.id;
   }
+  $(function() {
+  function aa(id) {
+    console.log('call donate ajax');
+
+  }
+});
 </script>
 </html>

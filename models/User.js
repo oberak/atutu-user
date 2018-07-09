@@ -13,6 +13,10 @@ var UserSchema = new Schema({
     type: String,
     trim: true
   },
+  proUrl: {
+      type: String,
+      default: null,
+  },
   id: {
     type: String,
     required: true,
@@ -28,7 +32,7 @@ var UserSchema = new Schema({
     required: true,
     trim: true
   },
-  role:{ 
+  role:{
     type: String,
     default: 'USER'
   },

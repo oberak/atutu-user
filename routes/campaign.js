@@ -344,11 +344,13 @@ router.post('/buypoint',function (req,res,next) {
       donate.trans_id = rtn2._id;
       donate.status = "reserved donation";
       donate.donor_id = req.cookies.user_cookie.id;
+      donate.campaigns = [];
       for(var t in req.cookies.cart.items){
-        donate.campaigns.cam_id = req.cookies.cart.items[t].id;
-        donate.campaigns.amount = req.cookies.cart.items[t].amount;
-        console.log('numes');
-      }
+        donate.campaigns.push({
+          cam_id: req.cookies.cart.items[t].id,
+          amount: req.cookies.cart.items[t].amount
+        });
+        }
       donate.save(function (err3,rtn3) {
         if(err3) throw err3;
         console.log('donation',rtn3);
@@ -363,4 +365,14 @@ router.post('/buypoint',function (req,res,next) {
   });
 
 });
+  router.post('/search',(req,res)=>{
+    Campaign.findById(req.body.camp_id, (err,rtn)=>{
+      if(err)throw err;
+      res.json({
+        status: true,
+        msg: 'success',
+        camp: rtn,
+      })
+    })
+  });
 module.exports = router;
