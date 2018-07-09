@@ -114,7 +114,7 @@ var CampaignSchema = new Schema({
    },
    insertedBy: {
        type: Schema.Types.ObjectId,
-       ref: 'Campaigns',
+       ref: 'Users',
    },
 });
 

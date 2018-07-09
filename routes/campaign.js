@@ -22,16 +22,17 @@ router.get('/detail/:id', function(req, res, next) {
     _id: req.params.id
   }, function(err, rtn) {
     if (err) throw err;
-    for (var j = 0; j < req.cookies.cart.items.length; j++) {
-      if (req.cookies.cart.items[j].id == rtn._id) {
-        rtn.cart = true;
-        break;
+    if (!req.cookies.cart) {res.render('campaign/campaign-detail', {camp: rtn});}
+    else{
+      for (var j = 0; j < req.cookies.cart.items.length; j++) {
+        if (req.cookies.cart.items[j].id == rtn._id) {
+          rtn.cart = true;
+          break;
+        }
       }
+      res.render('campaign/campaign-detail', {camp: rtn});
     }
-    if (rtn)
-      res.render('campaign/campaign-detail', {
-        camp: rtn
-      });
+
   });
 });
 
