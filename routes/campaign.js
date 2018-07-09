@@ -5,6 +5,7 @@ var Campaign = require('../models/Campaign');
 var Account = require('../models/Account');
 var Donate = require('../models/Donate');
 var Transition = require('../models/Transition');
+var flash = require('express-flash');
 var cookieParser = require('cookie-parser');
 var upload = multer({
   dest: 'public/images/uploads'
@@ -13,6 +14,9 @@ var auth = function(req, res, next) {
   if (req.session.user) {
     return next();
   } else{
+    req.flash('warn','You need to signin');
+    console.log('request path',req.path);
+    req.flash('forward', '/campaign'+req.path);
     res.redirect('/signup');
     }
 };

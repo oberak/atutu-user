@@ -4,6 +4,7 @@ var multer = require('multer');
 var User = require('../models/User');
 var Campaign = require('../models/Campaign');
 var Account = require('../models/Account');
+var flash = require('express-flash');
 var upload = multer({
   dest: 'public/images/uploads'
 });
@@ -12,6 +13,9 @@ var auth = function(req, res, next) {
   if (req.session.user) {
     return next();
   } else{
+    req.flash('warn','You need to signin');
+    console.log('request path',req.path);
+    req.flash('forward', req.path);
     res.redirect('/signup');
     }
 };
@@ -54,13 +58,13 @@ router.post('/signin', function(req, res, next) {
     if( user == null || !User.compare( req.body.passwordIn, user.password )) {
       req.flash( 'warn', 'Email not exists or password not matched!!' );
       res.redirect('/signup');
-    }else {
-      var user_cookie = {name:user.name,id:user._id};
-      res.cookie('user_cookie', user_cookie);
-      req.session.user = { name: user.name, email: user.emailIn, id: user._id };
-        res.redirect((req.body.forward)? req.body.forward : '/');
+    }else{
+        var user_cookie = {name:user.name,id:user._id};
+        res.cookie('user_cookie', user_cookie);
+        req.session.user = { name: user.name, email: user.emailIn, id: user._id };
+          res.redirect((req.body.forward)? req.body.forward : '/');
 
-      }
+    }
 
   });
 });

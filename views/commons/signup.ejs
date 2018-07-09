@@ -23,6 +23,7 @@
 <div class="cont">
   <!-- sign in start -->
   <form name="frmIn" action="/signin" method="post">
+    <input type="hidden" name="forward" value="<%=locals.messages.forward%>">
   <div class="form sign-in">
     <h2>Welcome back,</h2>
     <% if(locals.messages.warn){%>

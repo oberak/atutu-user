@@ -41,6 +41,8 @@ db.on('error',console.error.bind(console,'MongoDB connection error:'));
 app.use(flash()); // after cookie, session
 app.use(function (req, res, next) {
   res.locals.user = req.session.user;
+  res.locals.active = req.path;
+  console.log('user path', req.path);
   next();
 });
 
