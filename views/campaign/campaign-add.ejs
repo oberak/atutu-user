@@ -88,26 +88,12 @@
             <div class="form-group">
               <label class="col col-lg-2 col-md-2 control-label" for="address">Address <span class="required">*</span></label>
               <div class="col col-lg-3 col-md-10">
-                <select id="region" name="region" class="form-control selectpicker">
-                    <option value="">Select a Region</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                  </select>
+                <select id="state" name="state" class="form-control">
+                </select>
               </div>
               <div class="col col-lg-3 col-md-10">
-                <select id="city" name="city" class="form-control selectpicker">
-                    <option value="">Select a City</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                  </select>
+                <select id="district" name="district" class="form-control">
+                </select>
               </div>
               <div class="col col-lg-4 col-md-10">
                 <input type="text" name="address" id="address" class="form-control" placeholder="No.7,Aung Thu Kha street" required>
@@ -157,6 +143,7 @@
 </body>
 <script src="http://maps.google.com/maps/api/js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.js" charset="utf-8"></script>
+
 <script src="/scripts/map-objects-data.js"></script>
 
 <!-- Plugins js -->
@@ -238,8 +225,28 @@
     $("#uploadImg").change(function() {
       readURL(this);
     });
+    console.log('start');
+  var regions = [<%- addr%>];
+  console.log(regions);
+      addOptions('state', regions);
+      $("#state").on('change', function(){
+          var cities = $.grep( regions, function( n, i ) {
+            return n.state == $("#state").val();
+          });
+          addOptions('district', cities);
+      });
+
+      function addOptions(id, arr){
+          $("#"+id).children().remove();
+          for(var idx in arr){
+              if(idx == 0) $("#"+id).append(new Option('Select '+id, ''));
+              if(idx == 0 || arr[idx][id] != arr[idx-1][id]){
+                  $("#"+id).append(new Option(arr[idx][id], arr[idx][id]));
+              }
+          }
+      }
   });
-  
+
   save.onclick = function() {
     var formData = new FormData(document.querySelector('#frm'));
     formData.append('contents', quill.container.firstChild.innerHTML);

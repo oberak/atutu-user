@@ -122,4 +122,15 @@ router.post('/profile', upload.single('uploadImg'), function(req, res, next) {
     res.redirect('/');
   });
 
+  router.get('/addingaddr',function (req,res) {
+    var local = new Locations();
+    local.state = "Ayeyarwady";
+    local.district = "Pathein";
+    local.save(function (err,rtn) {
+      if(err) throw err;
+      console.log('succefully insert');
+      res.redirect('/');
+    });
+  });
+
 module.exports = router;

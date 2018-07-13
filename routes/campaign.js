@@ -6,6 +6,7 @@ var Account = require('../models/Account');
 var Donate = require('../models/Donate');
 var User = require('../models/User');
 var Transition = require('../models/Transition');
+var Locations = require('../models/Location');
 var flash = require('express-flash');
 var cookieParser = require('cookie-parser');
 var upload = multer({
@@ -21,8 +22,12 @@ var auth = function(req, res, next) {
     res.redirect('/signup');
     }
 };
-router.get('/add', auth, function(err, res, next) {
-  res.render('campaign/campaign-add');
+router.get('/add', auth, function(req, res, next) {
+  Locations.find({},{'state':1, _id:0, district:1},function (err,rtn) {
+    if(err) throw err;
+    res.render('campaign/campaign-add',{addr:rtn});
+  });
+
 });
 
 router.get('/detail/:id', function(req, res, next) {
@@ -368,6 +373,7 @@ router.post('/buypoint',function (req,res,next) {
   });
 
 });
+
   router.post('/search',function(req,res){
     Campaign.findById(req.body.camp_id, function(err,rtn){
       if(err)throw err;
